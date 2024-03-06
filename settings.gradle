@@ -1,7 +1,0 @@
-rootProject.name = 'bookstore'
-include 'service-orchestrator'
-include 'service-fraud-detection'
-include 'service-transaction-verification'
-include 'service-suggestion'
-include 'common-proto'
-

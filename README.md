@@ -28,19 +28,12 @@ If, for some reason, changes to the code are not reflected, try to force rebuild
 docker compose up --build
 ```
 
-### Run the code locally
-
-Even though you can run the code locally, it is recommended to use Docker and Docker Compose to run the code. This way you don't have to install any dependencies locally and you can easily run the code on any platform.
-
-If you want to run the code locally, you need to install the following dependencies:
-
-backend services:
-- Python 3.8 or newer
-- pip
-- [grpcio-tools](https://grpc.io/docs/languages/python/quickstart/)
-- requirements.txt dependencies from each service
-
 frontend service:
 - node.js, npm (or any other package manager)
 
 And then run each service individually.
+
+### Diagrams
+
+![alt text](sequence-diagram.jpeg "Sequence diagram")
+![alt text](system-diagram.jpeg "System diagram")

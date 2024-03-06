@@ -14,8 +14,7 @@ public class SuggestionService {
     private SuggestionServiceGrpc.SuggestionServiceBlockingStub suggestionServiceBlockingStub;
 
     public String suggest(List<String> books) {
-        SuggestionServiceOuterClass.SuggestionRequest request = SuggestionServiceOuterClass.SuggestionRequest.newBuilder()
-                .setBooksNames(0, "Test book").build();
+        SuggestionServiceOuterClass.SuggestionRequest request = SuggestionServiceOuterClass.SuggestionRequest.newBuilder().build();
         return suggestionServiceBlockingStub.suggest(request).getBookName();
     }
 }

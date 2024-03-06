@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("checkout")
 @RequiredArgsConstructor
 public class OrderController {
-    private OrchestratorService orchestratorService;
+    private final OrchestratorService orchestratorService;
 
     @PostMapping()
     public OrderResponse processOrder(OrderRequest orderRequest) {

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package com.dspractice.bookstore.commonproto;
+
+message CardInformation {
+  string number = 1;
+  string expiration_date = 2;
+  string cvv = 3;
+}
+
+message TransactionRequest {
+  CardInformation card = 1;
+}
+
+message TransactionResponse {
+  string id = 1;
+}
+
+service TransactionVerficationService {
+  rpc verify (TransactionRequest) returns (TransactionResponse);
+}
+

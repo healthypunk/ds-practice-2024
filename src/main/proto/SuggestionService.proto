@@ -1,0 +1,17 @@
+syntax = "proto3";
+package com.dspractice.bookstore.commonproto;
+
+message SuggestionRequest {
+  repeated string booksNames = 1;
+  string bookName = 2;
+}
+
+message SuggestionResponse {
+  bool fraud = 1;
+}
+
+service SuggestionService {
+  rpc suggest (SuggestionRequest) returns (SuggestionResponse);
+}
+
+

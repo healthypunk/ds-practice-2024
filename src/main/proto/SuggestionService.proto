@@ -7,6 +7,8 @@ message SuggestionRequest {
 
 message SuggestionResponse {
   string bookName = 1;
+  string author = 2;
+  string bookId = 3;
 }
 
 service SuggestionService {

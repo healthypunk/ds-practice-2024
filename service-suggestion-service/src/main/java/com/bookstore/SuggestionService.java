@@ -15,7 +15,7 @@ public class SuggestionService extends SuggestionServiceGrpc.SuggestionServiceIm
     public void suggest(SuggestionServiceOuterClass.SuggestionRequest request, StreamObserver<SuggestionServiceOuterClass.SuggestionResponse> responseObserver) {
         logger.info("Received suggestion request");
         SuggestionServiceOuterClass.SuggestionResponse response = SuggestionServiceOuterClass.SuggestionResponse.newBuilder()
-                .setBookName("DS practice book").build();
+                .setBookName("DS practice book").setAuthor("UT").setBookId("12345").build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
         logger.info("Sent suggestion response");

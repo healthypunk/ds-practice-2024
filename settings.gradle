@@ -2,5 +2,6 @@ rootProject.name = 'bookstore-grpc'
 include 'server-side'
 include 'client-side'
 include 'service-fraud-detection'
-include 'service-fraud-detection'
+include 'service-transaction-verification'
+include 'service-suggestion-service'
 

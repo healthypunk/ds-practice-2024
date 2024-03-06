@@ -42,18 +42,6 @@ public final class SuggestionServiceOuterClass {
      */
     com.google.protobuf.ByteString
         getBooksNamesBytes(int index);
-
-    /**
-     * <code>string bookName = 2;</code>
-     * @return The bookName.
-     */
-    java.lang.String getBookName();
-    /**
-     * <code>string bookName = 2;</code>
-     * @return The bytes for bookName.
-     */
-    com.google.protobuf.ByteString
-        getBookNameBytes();
   }
   /**
    * Protobuf type {@code com.dspractice.bookstore.commonproto.SuggestionRequest}
@@ -69,7 +57,6 @@ public final class SuggestionServiceOuterClass {
     }
     private SuggestionRequest() {
       booksNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bookName_ = "";
     }
 
     @java.lang.Override
@@ -110,12 +97,6 @@ public final class SuggestionServiceOuterClass {
                 mutable_bitField0_ |= 0x00000001;
               }
               booksNames_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              bookName_ = s;
               break;
             }
             default: {
@@ -188,44 +169,6 @@ public final class SuggestionServiceOuterClass {
       return booksNames_.getByteString(index);
     }
 
-    public static final int BOOKNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object bookName_;
-    /**
-     * <code>string bookName = 2;</code>
-     * @return The bookName.
-     */
-    @java.lang.Override
-    public java.lang.String getBookName() {
-      java.lang.Object ref = bookName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        bookName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string bookName = 2;</code>
-     * @return The bytes for bookName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getBookNameBytes() {
-      java.lang.Object ref = bookName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        bookName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -242,9 +185,6 @@ public final class SuggestionServiceOuterClass {
                         throws java.io.IOException {
       for (int i = 0; i < booksNames_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, booksNames_.getRaw(i));
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, bookName_);
       }
       unknownFields.writeTo(output);
     }
@@ -263,9 +203,6 @@ public final class SuggestionServiceOuterClass {
         size += dataSize;
         size += 1 * getBooksNamesList().size();
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, bookName_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -283,8 +220,6 @@ public final class SuggestionServiceOuterClass {
 
       if (!getBooksNamesList()
           .equals(other.getBooksNamesList())) return false;
-      if (!getBookName()
-          .equals(other.getBookName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -300,8 +235,6 @@ public final class SuggestionServiceOuterClass {
         hash = (37 * hash) + BOOKSNAMES_FIELD_NUMBER;
         hash = (53 * hash) + getBooksNamesList().hashCode();
       }
-      hash = (37 * hash) + BOOKNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getBookName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -437,8 +370,6 @@ public final class SuggestionServiceOuterClass {
         super.clear();
         booksNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        bookName_ = "";
-
         return this;
       }
 
@@ -471,7 +402,6 @@ public final class SuggestionServiceOuterClass {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.booksNames_ = booksNames_;
-        result.bookName_ = bookName_;
         onBuilt();
         return result;
       }
@@ -528,10 +458,6 @@ public final class SuggestionServiceOuterClass {
             ensureBooksNamesIsMutable();
             booksNames_.addAll(other.booksNames_);
           }
-          onChanged();
-        }
-        if (!other.getBookName().isEmpty()) {
-          bookName_ = other.bookName_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -673,82 +599,6 @@ public final class SuggestionServiceOuterClass {
         onChanged();
         return this;
       }
-
-      private java.lang.Object bookName_ = "";
-      /**
-       * <code>string bookName = 2;</code>
-       * @return The bookName.
-       */
-      public java.lang.String getBookName() {
-        java.lang.Object ref = bookName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          bookName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string bookName = 2;</code>
-       * @return The bytes for bookName.
-       */
-      public com.google.protobuf.ByteString
-          getBookNameBytes() {
-        java.lang.Object ref = bookName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          bookName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string bookName = 2;</code>
-       * @param value The bookName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBookName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        bookName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string bookName = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearBookName() {
-        
-        bookName_ = getDefaultInstance().getBookName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string bookName = 2;</code>
-       * @param value The bytes for bookName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBookNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        bookName_ = value;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -807,10 +657,16 @@ public final class SuggestionServiceOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bool fraud = 1;</code>
-     * @return The fraud.
+     * <code>string bookName = 1;</code>
+     * @return The bookName.
      */
-    boolean getFraud();
+    java.lang.String getBookName();
+    /**
+     * <code>string bookName = 1;</code>
+     * @return The bytes for bookName.
+     */
+    com.google.protobuf.ByteString
+        getBookNameBytes();
   }
   /**
    * Protobuf type {@code com.dspractice.bookstore.commonproto.SuggestionResponse}
@@ -825,6 +681,7 @@ public final class SuggestionServiceOuterClass {
       super(builder);
     }
     private SuggestionResponse() {
+      bookName_ = "";
     }
 
     @java.lang.Override
@@ -857,9 +714,10 @@ public final class SuggestionServiceOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              fraud_ = input.readBool();
+              bookName_ = s;
               break;
             }
             default: {
@@ -894,15 +752,42 @@ public final class SuggestionServiceOuterClass {
               com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.class, com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.Builder.class);
     }
 
-    public static final int FRAUD_FIELD_NUMBER = 1;
-    private boolean fraud_;
+    public static final int BOOKNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object bookName_;
     /**
-     * <code>bool fraud = 1;</code>
-     * @return The fraud.
+     * <code>string bookName = 1;</code>
+     * @return The bookName.
      */
     @java.lang.Override
-    public boolean getFraud() {
-      return fraud_;
+    public java.lang.String getBookName() {
+      java.lang.Object ref = bookName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        bookName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string bookName = 1;</code>
+     * @return The bytes for bookName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getBookNameBytes() {
+      java.lang.Object ref = bookName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bookName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -919,8 +804,8 @@ public final class SuggestionServiceOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (fraud_ != false) {
-        output.writeBool(1, fraud_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, bookName_);
       }
       unknownFields.writeTo(output);
     }
@@ -931,9 +816,8 @@ public final class SuggestionServiceOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (fraud_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, fraud_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, bookName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -950,8 +834,8 @@ public final class SuggestionServiceOuterClass {
       }
       com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse other = (com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse) obj;
 
-      if (getFraud()
-          != other.getFraud()) return false;
+      if (!getBookName()
+          .equals(other.getBookName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -963,9 +847,8 @@ public final class SuggestionServiceOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + FRAUD_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getFraud());
+      hash = (37 * hash) + BOOKNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getBookName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1099,7 +982,7 @@ public final class SuggestionServiceOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        fraud_ = false;
+        bookName_ = "";
 
         return this;
       }
@@ -1127,7 +1010,7 @@ public final class SuggestionServiceOuterClass {
       @java.lang.Override
       public com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse buildPartial() {
         com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse result = new com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse(this);
-        result.fraud_ = fraud_;
+        result.bookName_ = bookName_;
         onBuilt();
         return result;
       }
@@ -1176,8 +1059,9 @@ public final class SuggestionServiceOuterClass {
 
       public Builder mergeFrom(com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse other) {
         if (other == com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.getDefaultInstance()) return this;
-        if (other.getFraud() != false) {
-          setFraud(other.getFraud());
+        if (!other.getBookName().isEmpty()) {
+          bookName_ = other.bookName_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1208,33 +1092,78 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
 
-      private boolean fraud_ ;
+      private java.lang.Object bookName_ = "";
       /**
-       * <code>bool fraud = 1;</code>
-       * @return The fraud.
+       * <code>string bookName = 1;</code>
+       * @return The bookName.
        */
-      @java.lang.Override
-      public boolean getFraud() {
-        return fraud_;
+      public java.lang.String getBookName() {
+        java.lang.Object ref = bookName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          bookName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bool fraud = 1;</code>
-       * @param value The fraud to set.
+       * <code>string bookName = 1;</code>
+       * @return The bytes for bookName.
+       */
+      public com.google.protobuf.ByteString
+          getBookNameBytes() {
+        java.lang.Object ref = bookName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bookName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string bookName = 1;</code>
+       * @param value The bookName to set.
        * @return This builder for chaining.
        */
-      public Builder setFraud(boolean value) {
-        
-        fraud_ = value;
+      public Builder setBookName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        bookName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool fraud = 1;</code>
+       * <code>string bookName = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFraud() {
+      public Builder clearBookName() {
         
-        fraud_ = false;
+        bookName_ = getDefaultInstance().getBookName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string bookName = 1;</code>
+       * @param value The bytes for bookName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBookNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        bookName_ = value;
         onChanged();
         return this;
       }
@@ -1311,13 +1240,13 @@ public final class SuggestionServiceOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\027SuggestionService.proto\022$com.dspractic" +
-      "e.bookstore.commonproto\"9\n\021SuggestionReq" +
-      "uest\022\022\n\nbooksNames\030\001 \003(\t\022\020\n\010bookName\030\002 \001" +
-      "(\t\"#\n\022SuggestionResponse\022\r\n\005fraud\030\001 \001(\0102" +
-      "\221\001\n\021SuggestionService\022|\n\007suggest\0227.com.d" +
-      "spractice.bookstore.commonproto.Suggesti" +
-      "onRequest\0328.com.dspractice.bookstore.com" +
-      "monproto.SuggestionResponseb\006proto3"
+      "e.bookstore.commonproto\"\'\n\021SuggestionReq" +
+      "uest\022\022\n\nbooksNames\030\001 \003(\t\"&\n\022SuggestionRe" +
+      "sponse\022\020\n\010bookName\030\001 \001(\t2\221\001\n\021SuggestionS" +
+      "ervice\022|\n\007suggest\0227.com.dspractice.books" +
+      "tore.commonproto.SuggestionRequest\0328.com" +
+      ".dspractice.bookstore.commonproto.Sugges" +
+      "tionResponseb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1328,13 +1257,13 @@ public final class SuggestionServiceOuterClass {
     internal_static_com_dspractice_bookstore_commonproto_SuggestionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_SuggestionRequest_descriptor,
-        new java.lang.String[] { "BooksNames", "BookName", });
+        new java.lang.String[] { "BooksNames", });
     internal_static_com_dspractice_bookstore_commonproto_SuggestionResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_dspractice_bookstore_commonproto_SuggestionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_SuggestionResponse_descriptor,
-        new java.lang.String[] { "Fraud", });
+        new java.lang.String[] { "BookName", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -53,7 +53,7 @@ public class OrderRequest {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    private static class Item {
+    public static class Item {
         private String name;
         private Integer quantity;
     }
@@ -62,7 +62,7 @@ public class OrderRequest {
     @NoArgsConstructor
     @AllArgsConstructor
     @Accessors(chain = true)
-    private static class BillingAddress {
+    public static class BillingAddress {
         private String street;
         private String city;
         private String state;
@@ -74,7 +74,7 @@ public class OrderRequest {
     @NoArgsConstructor
     @AllArgsConstructor
     @Accessors(chain = true)
-    private static class Device {
+    public static class Device {
         private String type;
         private String model;
         private String os;
@@ -84,7 +84,7 @@ public class OrderRequest {
     @NoArgsConstructor
     @AllArgsConstructor
     @Accessors(chain = true)
-    private static class Browser {
+    public static class Browser {
         private String name;
         private String version;
     }

@@ -14,14 +14,14 @@ import java.util.List;
 public class OrderResponse {
     public String orderId;
     public String orderStatus;
-    private List<SuggestedBooks> suggestedBooks;
+    private List<SuggestedBook> suggestedBooks;
 
 
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     @Accessors(chain = true)
-    public static class SuggestedBooks {
+    public static class SuggestedBook {
         private String bookId;
         private String title;
         private String author;

@@ -1,6 +1,6 @@
-package com.example.client.controllers;
+package com.bookstore.client.controllers;
 
-import com.example.client.services.HelloService;
+import com.bookstore.client.services.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -1,4 +1,4 @@
-package com.example.client;
+package com.bookstore.client;
 
 
 import org.springframework.boot.SpringApplication;

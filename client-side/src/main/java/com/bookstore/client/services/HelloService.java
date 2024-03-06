@@ -1,4 +1,4 @@
-package com.example.client.services;
+package com.bookstore.client.services;
 
 
 import com.example.grpc.HelloRequest;

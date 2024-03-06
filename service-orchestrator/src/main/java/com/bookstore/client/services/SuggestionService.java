@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class SuggestionService {
 
-    @GrpcClient("grpc-client")
+    @GrpcClient("grpc-suggestion-service")
     private SuggestionServiceGrpc.SuggestionServiceBlockingStub suggestionServiceBlockingStub;
 
     public String suggest(List<String> books) {

@@ -1,5 +1,5 @@
 rootProject.name = 'bookstore-grpc'
-include 'server-side'
+include 'service-orchestrator'
 include 'client-side'
 include 'service-fraud-detection'
 include 'service-transaction-verification'

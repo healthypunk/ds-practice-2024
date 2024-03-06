@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FraudDetectionService {
-    @GrpcClient("grpc-client")
+    @GrpcClient("grpc-fraud-detection")
     private FraudDetectionServiceGrpc.FraudDetectionServiceBlockingStub fraudDetectionServiceBlockingStub;
 
     public boolean detect(OrderRequest orderRequest) {

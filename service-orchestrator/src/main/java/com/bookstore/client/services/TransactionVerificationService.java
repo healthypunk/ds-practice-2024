@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TransactionVerificationService {
-    @GrpcClient("grpc-client")
+    @GrpcClient("grpc-transaction-verification")
     private TransactionVerficationServiceGrpc.TransactionVerficationServiceBlockingStub transactionVerficationServiceBlockingStub;
 
     public String suggest(OrderRequest orderRequest) {

@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: grpc-client
+  task:
+    execution:
+      pool:
+        core-size: 2
+        max-size: 3
+grpc:
+  client:
+    grpc-fraud-detection:
+      address: 'static://127.0.0.1:50051'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
+    grpc-transaction-verification:
+      address: 'static://127.0.0.1:50052'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
+    grpc-suggestion-service:
+      address: 'static://127.0.0.1:50053'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
+

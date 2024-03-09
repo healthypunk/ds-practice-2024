@@ -18,7 +18,7 @@ public class TransactionVerificationService extends TransactionVerficationServic
         TransactionVerification.TransactionResponse response = TransactionVerification.TransactionResponse.newBuilder()
                 .setId(UUID.randomUUID().toString()).build();
         responseObserver.onNext(response);
-        log.info("[Order ID: {}] {}, {}", request.getOrderId(), "Verification result is: ", false);
         responseObserver.onCompleted();
+        log.info("[Order ID: {}] {}, {}", request.getOrderId(), "Verification result: ", false);
     }
 }

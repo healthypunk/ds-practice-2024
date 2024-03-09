@@ -2055,32 +2055,44 @@ public final class FraudService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    java.lang.String getOrderId();
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    com.google.protobuf.ByteString
+        getOrderIdBytes();
+
+    /**
+     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
      * @return Whether the card field is set.
      */
     boolean hasCard();
     /**
-     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
      * @return The card.
      */
     com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation getCard();
     /**
-     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
      */
     com.dspractice.bookstore.commonproto.FraudService.CreditCardInformationOrBuilder getCardOrBuilder();
 
     /**
-     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
      * @return Whether the address field is set.
      */
     boolean hasAddress();
     /**
-     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
      * @return The address.
      */
     com.dspractice.bookstore.commonproto.FraudService.BillingAddress getAddress();
     /**
-     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
      */
     com.dspractice.bookstore.commonproto.FraudService.BillingAddressOrBuilder getAddressOrBuilder();
   }
@@ -2097,6 +2109,7 @@ public final class FraudService {
       super(builder);
     }
     private FraudDetectionRequest() {
+      orderId_ = "";
     }
 
     @java.lang.Override
@@ -2130,6 +2143,12 @@ public final class FraudService {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              orderId_ = s;
+              break;
+            }
+            case 18: {
               com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation.Builder subBuilder = null;
               if (card_ != null) {
                 subBuilder = card_.toBuilder();
@@ -2142,7 +2161,7 @@ public final class FraudService {
 
               break;
             }
-            case 18: {
+            case 26: {
               com.dspractice.bookstore.commonproto.FraudService.BillingAddress.Builder subBuilder = null;
               if (address_ != null) {
                 subBuilder = address_.toBuilder();
@@ -2187,10 +2206,48 @@ public final class FraudService {
               com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest.class, com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest.Builder.class);
     }
 
-    public static final int CARD_FIELD_NUMBER = 1;
+    public static final int ORDERID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object orderId_;
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    @java.lang.Override
+    public java.lang.String getOrderId() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        orderId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOrderIdBytes() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CARD_FIELD_NUMBER = 2;
     private com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation card_;
     /**
-     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
      * @return Whether the card field is set.
      */
     @java.lang.Override
@@ -2198,7 +2255,7 @@ public final class FraudService {
       return card_ != null;
     }
     /**
-     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
      * @return The card.
      */
     @java.lang.Override
@@ -2206,17 +2263,17 @@ public final class FraudService {
       return card_ == null ? com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation.getDefaultInstance() : card_;
     }
     /**
-     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+     * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
      */
     @java.lang.Override
     public com.dspractice.bookstore.commonproto.FraudService.CreditCardInformationOrBuilder getCardOrBuilder() {
       return getCard();
     }
 
-    public static final int ADDRESS_FIELD_NUMBER = 2;
+    public static final int ADDRESS_FIELD_NUMBER = 3;
     private com.dspractice.bookstore.commonproto.FraudService.BillingAddress address_;
     /**
-     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
      * @return Whether the address field is set.
      */
     @java.lang.Override
@@ -2224,7 +2281,7 @@ public final class FraudService {
       return address_ != null;
     }
     /**
-     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
      * @return The address.
      */
     @java.lang.Override
@@ -2232,7 +2289,7 @@ public final class FraudService {
       return address_ == null ? com.dspractice.bookstore.commonproto.FraudService.BillingAddress.getDefaultInstance() : address_;
     }
     /**
-     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+     * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
      */
     @java.lang.Override
     public com.dspractice.bookstore.commonproto.FraudService.BillingAddressOrBuilder getAddressOrBuilder() {
@@ -2253,11 +2310,14 @@ public final class FraudService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderId_);
+      }
       if (card_ != null) {
-        output.writeMessage(1, getCard());
+        output.writeMessage(2, getCard());
       }
       if (address_ != null) {
-        output.writeMessage(2, getAddress());
+        output.writeMessage(3, getAddress());
       }
       unknownFields.writeTo(output);
     }
@@ -2268,13 +2328,16 @@ public final class FraudService {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderId_);
+      }
       if (card_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getCard());
+          .computeMessageSize(2, getCard());
       }
       if (address_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getAddress());
+          .computeMessageSize(3, getAddress());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2291,6 +2354,8 @@ public final class FraudService {
       }
       com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest other = (com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest) obj;
 
+      if (!getOrderId()
+          .equals(other.getOrderId())) return false;
       if (hasCard() != other.hasCard()) return false;
       if (hasCard()) {
         if (!getCard()
@@ -2312,6 +2377,8 @@ public final class FraudService {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrderId().hashCode();
       if (hasCard()) {
         hash = (37 * hash) + CARD_FIELD_NUMBER;
         hash = (53 * hash) + getCard().hashCode();
@@ -2453,6 +2520,8 @@ public final class FraudService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        orderId_ = "";
+
         if (cardBuilder_ == null) {
           card_ = null;
         } else {
@@ -2491,6 +2560,7 @@ public final class FraudService {
       @java.lang.Override
       public com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest buildPartial() {
         com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest result = new com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest(this);
+        result.orderId_ = orderId_;
         if (cardBuilder_ == null) {
           result.card_ = card_;
         } else {
@@ -2549,6 +2619,10 @@ public final class FraudService {
 
       public Builder mergeFrom(com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest other) {
         if (other == com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest.getDefaultInstance()) return this;
+        if (!other.getOrderId().isEmpty()) {
+          orderId_ = other.orderId_;
+          onChanged();
+        }
         if (other.hasCard()) {
           mergeCard(other.getCard());
         }
@@ -2584,18 +2658,94 @@ public final class FraudService {
         return this;
       }
 
+      private java.lang.Object orderId_ = "";
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The orderId.
+       */
+      public java.lang.String getOrderId() {
+        java.lang.Object ref = orderId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          orderId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The bytes for orderId.
+       */
+      public com.google.protobuf.ByteString
+          getOrderIdBytes() {
+        java.lang.Object ref = orderId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          orderId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrderId() {
+        
+        orderId_ = getDefaultInstance().getOrderId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The bytes for orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation card_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation, com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation.Builder, com.dspractice.bookstore.commonproto.FraudService.CreditCardInformationOrBuilder> cardBuilder_;
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        * @return Whether the card field is set.
        */
       public boolean hasCard() {
         return cardBuilder_ != null || card_ != null;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        * @return The card.
        */
       public com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation getCard() {
@@ -2606,7 +2756,7 @@ public final class FraudService {
         }
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        */
       public Builder setCard(com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation value) {
         if (cardBuilder_ == null) {
@@ -2622,7 +2772,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        */
       public Builder setCard(
           com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation.Builder builderForValue) {
@@ -2636,7 +2786,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        */
       public Builder mergeCard(com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation value) {
         if (cardBuilder_ == null) {
@@ -2654,7 +2804,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        */
       public Builder clearCard() {
         if (cardBuilder_ == null) {
@@ -2668,7 +2818,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        */
       public com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation.Builder getCardBuilder() {
         
@@ -2676,7 +2826,7 @@ public final class FraudService {
         return getCardFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        */
       public com.dspractice.bookstore.commonproto.FraudService.CreditCardInformationOrBuilder getCardOrBuilder() {
         if (cardBuilder_ != null) {
@@ -2687,7 +2837,7 @@ public final class FraudService {
         }
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 1;</code>
+       * <code>.com.dspractice.bookstore.commonproto.CreditCardInformation card = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation, com.dspractice.bookstore.commonproto.FraudService.CreditCardInformation.Builder, com.dspractice.bookstore.commonproto.FraudService.CreditCardInformationOrBuilder> 
@@ -2707,14 +2857,14 @@ public final class FraudService {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.dspractice.bookstore.commonproto.FraudService.BillingAddress, com.dspractice.bookstore.commonproto.FraudService.BillingAddress.Builder, com.dspractice.bookstore.commonproto.FraudService.BillingAddressOrBuilder> addressBuilder_;
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        * @return Whether the address field is set.
        */
       public boolean hasAddress() {
         return addressBuilder_ != null || address_ != null;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        * @return The address.
        */
       public com.dspractice.bookstore.commonproto.FraudService.BillingAddress getAddress() {
@@ -2725,7 +2875,7 @@ public final class FraudService {
         }
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        */
       public Builder setAddress(com.dspractice.bookstore.commonproto.FraudService.BillingAddress value) {
         if (addressBuilder_ == null) {
@@ -2741,7 +2891,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        */
       public Builder setAddress(
           com.dspractice.bookstore.commonproto.FraudService.BillingAddress.Builder builderForValue) {
@@ -2755,7 +2905,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        */
       public Builder mergeAddress(com.dspractice.bookstore.commonproto.FraudService.BillingAddress value) {
         if (addressBuilder_ == null) {
@@ -2773,7 +2923,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        */
       public Builder clearAddress() {
         if (addressBuilder_ == null) {
@@ -2787,7 +2937,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        */
       public com.dspractice.bookstore.commonproto.FraudService.BillingAddress.Builder getAddressBuilder() {
         
@@ -2795,7 +2945,7 @@ public final class FraudService {
         return getAddressFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        */
       public com.dspractice.bookstore.commonproto.FraudService.BillingAddressOrBuilder getAddressOrBuilder() {
         if (addressBuilder_ != null) {
@@ -2806,7 +2956,7 @@ public final class FraudService {
         }
       }
       /**
-       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 2;</code>
+       * <code>.com.dspractice.bookstore.commonproto.BillingAddress address = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.dspractice.bookstore.commonproto.FraudService.BillingAddress, com.dspractice.bookstore.commonproto.FraudService.BillingAddress.Builder, com.dspractice.bookstore.commonproto.FraudService.BillingAddressOrBuilder> 
@@ -2879,7 +3029,19 @@ public final class FraudService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bool fraud = 1;</code>
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    java.lang.String getOrderId();
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    com.google.protobuf.ByteString
+        getOrderIdBytes();
+
+    /**
+     * <code>bool fraud = 2;</code>
      * @return The fraud.
      */
     boolean getFraud();
@@ -2897,6 +3059,7 @@ public final class FraudService {
       super(builder);
     }
     private FraudDetectionResponse() {
+      orderId_ = "";
     }
 
     @java.lang.Override
@@ -2929,7 +3092,13 @@ public final class FraudService {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              orderId_ = s;
+              break;
+            }
+            case 16: {
 
               fraud_ = input.readBool();
               break;
@@ -2966,10 +3135,48 @@ public final class FraudService {
               com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse.class, com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse.Builder.class);
     }
 
-    public static final int FRAUD_FIELD_NUMBER = 1;
+    public static final int ORDERID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object orderId_;
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    @java.lang.Override
+    public java.lang.String getOrderId() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        orderId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOrderIdBytes() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FRAUD_FIELD_NUMBER = 2;
     private boolean fraud_;
     /**
-     * <code>bool fraud = 1;</code>
+     * <code>bool fraud = 2;</code>
      * @return The fraud.
      */
     @java.lang.Override
@@ -2991,8 +3198,11 @@ public final class FraudService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderId_);
+      }
       if (fraud_ != false) {
-        output.writeBool(1, fraud_);
+        output.writeBool(2, fraud_);
       }
       unknownFields.writeTo(output);
     }
@@ -3003,9 +3213,12 @@ public final class FraudService {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderId_);
+      }
       if (fraud_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, fraud_);
+          .computeBoolSize(2, fraud_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3022,6 +3235,8 @@ public final class FraudService {
       }
       com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse other = (com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse) obj;
 
+      if (!getOrderId()
+          .equals(other.getOrderId())) return false;
       if (getFraud()
           != other.getFraud()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -3035,6 +3250,8 @@ public final class FraudService {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrderId().hashCode();
       hash = (37 * hash) + FRAUD_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getFraud());
@@ -3171,6 +3388,8 @@ public final class FraudService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        orderId_ = "";
+
         fraud_ = false;
 
         return this;
@@ -3199,6 +3418,7 @@ public final class FraudService {
       @java.lang.Override
       public com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse buildPartial() {
         com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse result = new com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse(this);
+        result.orderId_ = orderId_;
         result.fraud_ = fraud_;
         onBuilt();
         return result;
@@ -3248,6 +3468,10 @@ public final class FraudService {
 
       public Builder mergeFrom(com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse other) {
         if (other == com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse.getDefaultInstance()) return this;
+        if (!other.getOrderId().isEmpty()) {
+          orderId_ = other.orderId_;
+          onChanged();
+        }
         if (other.getFraud() != false) {
           setFraud(other.getFraud());
         }
@@ -3280,9 +3504,85 @@ public final class FraudService {
         return this;
       }
 
+      private java.lang.Object orderId_ = "";
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The orderId.
+       */
+      public java.lang.String getOrderId() {
+        java.lang.Object ref = orderId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          orderId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The bytes for orderId.
+       */
+      public com.google.protobuf.ByteString
+          getOrderIdBytes() {
+        java.lang.Object ref = orderId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          orderId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrderId() {
+        
+        orderId_ = getDefaultInstance().getOrderId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The bytes for orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+
       private boolean fraud_ ;
       /**
-       * <code>bool fraud = 1;</code>
+       * <code>bool fraud = 2;</code>
        * @return The fraud.
        */
       @java.lang.Override
@@ -3290,7 +3590,7 @@ public final class FraudService {
         return fraud_;
       }
       /**
-       * <code>bool fraud = 1;</code>
+       * <code>bool fraud = 2;</code>
        * @param value The fraud to set.
        * @return This builder for chaining.
        */
@@ -3301,7 +3601,7 @@ public final class FraudService {
         return this;
       }
       /**
-       * <code>bool fraud = 1;</code>
+       * <code>bool fraud = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearFraud() {
@@ -3397,17 +3697,18 @@ public final class FraudService {
       "ion\022\016\n\006number\030\001 \001(\t\022\026\n\016expirationDate\030\002 " +
       "\001(\t\022\013\n\003cvv\030\003 \001(\t\"[\n\016BillingAddress\022\016\n\006st" +
       "reet\030\001 \001(\t\022\014\n\004city\030\002 \001(\t\022\r\n\005state\030\003 \001(\t\022" +
-      "\013\n\003zip\030\004 \001(\t\022\017\n\007country\030\005 \001(\t\"\251\001\n\025FraudD" +
-      "etectionRequest\022I\n\004card\030\001 \001(\0132;.com.dspr" +
-      "actice.bookstore.commonproto.CreditCardI" +
-      "nformation\022E\n\007address\030\002 \001(\01324.com.dsprac" +
-      "tice.bookstore.commonproto.BillingAddres" +
-      "s\"\'\n\026FraudDetectionResponse\022\r\n\005fraud\030\001 \001" +
-      "(\0102\235\001\n\025FraudDetectionService\022\203\001\n\006detect\022" +
-      ";.com.dspractice.bookstore.commonproto.F" +
-      "raudDetectionRequest\032<.com.dspractice.bo" +
-      "okstore.commonproto.FraudDetectionRespon" +
-      "seb\006proto3"
+      "\013\n\003zip\030\004 \001(\t\022\017\n\007country\030\005 \001(\t\"\272\001\n\025FraudD" +
+      "etectionRequest\022\017\n\007orderId\030\001 \001(\t\022I\n\004card" +
+      "\030\002 \001(\0132;.com.dspractice.bookstore.common" +
+      "proto.CreditCardInformation\022E\n\007address\030\003" +
+      " \001(\01324.com.dspractice.bookstore.commonpr" +
+      "oto.BillingAddress\"8\n\026FraudDetectionResp" +
+      "onse\022\017\n\007orderId\030\001 \001(\t\022\r\n\005fraud\030\002 \001(\0102\235\001\n" +
+      "\025FraudDetectionService\022\203\001\n\006detect\022;.com." +
+      "dspractice.bookstore.commonproto.FraudDe" +
+      "tectionRequest\032<.com.dspractice.bookstor" +
+      "e.commonproto.FraudDetectionResponseb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3430,13 +3731,13 @@ public final class FraudService {
     internal_static_com_dspractice_bookstore_commonproto_FraudDetectionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_FraudDetectionRequest_descriptor,
-        new java.lang.String[] { "Card", "Address", });
+        new java.lang.String[] { "OrderId", "Card", "Address", });
     internal_static_com_dspractice_bookstore_commonproto_FraudDetectionResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_dspractice_bookstore_commonproto_FraudDetectionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_FraudDetectionResponse_descriptor,
-        new java.lang.String[] { "Fraud", });
+        new java.lang.String[] { "OrderId", "Fraud", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

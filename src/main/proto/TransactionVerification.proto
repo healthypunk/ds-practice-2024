@@ -8,11 +8,13 @@ message CardInformation {
 }
 
 message TransactionRequest {
-  CardInformation card = 1;
+  string orderId = 1;
+  CardInformation card = 2;
 }
 
 message TransactionResponse {
-  string id = 1;
+  string orderId = 1;
+  string id = 2;
 }
 
 service TransactionVerficationService {

@@ -19,24 +19,36 @@ public final class SuggestionServiceOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    java.lang.String getOrderId();
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    com.google.protobuf.ByteString
+        getOrderIdBytes();
+
+    /**
+     * <code>repeated string booksNames = 2;</code>
      * @return A list containing the booksNames.
      */
     java.util.List<java.lang.String>
         getBooksNamesList();
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>repeated string booksNames = 2;</code>
      * @return The count of booksNames.
      */
     int getBooksNamesCount();
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>repeated string booksNames = 2;</code>
      * @param index The index of the element to return.
      * @return The booksNames at the given index.
      */
     java.lang.String getBooksNames(int index);
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>repeated string booksNames = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the booksNames at the given index.
      */
@@ -56,6 +68,7 @@ public final class SuggestionServiceOuterClass {
       super(builder);
     }
     private SuggestionRequest() {
+      orderId_ = "";
       booksNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -91,6 +104,12 @@ public final class SuggestionServiceOuterClass {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              orderId_ = s;
+              break;
+            }
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 booksNames_ = new com.google.protobuf.LazyStringArrayList();
@@ -134,10 +153,48 @@ public final class SuggestionServiceOuterClass {
               com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest.class, com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest.Builder.class);
     }
 
-    public static final int BOOKSNAMES_FIELD_NUMBER = 1;
+    public static final int ORDERID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object orderId_;
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    @java.lang.Override
+    public java.lang.String getOrderId() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        orderId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOrderIdBytes() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BOOKSNAMES_FIELD_NUMBER = 2;
     private com.google.protobuf.LazyStringList booksNames_;
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>repeated string booksNames = 2;</code>
      * @return A list containing the booksNames.
      */
     public com.google.protobuf.ProtocolStringList
@@ -145,14 +202,14 @@ public final class SuggestionServiceOuterClass {
       return booksNames_;
     }
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>repeated string booksNames = 2;</code>
      * @return The count of booksNames.
      */
     public int getBooksNamesCount() {
       return booksNames_.size();
     }
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>repeated string booksNames = 2;</code>
      * @param index The index of the element to return.
      * @return The booksNames at the given index.
      */
@@ -160,7 +217,7 @@ public final class SuggestionServiceOuterClass {
       return booksNames_.get(index);
     }
     /**
-     * <code>repeated string booksNames = 1;</code>
+     * <code>repeated string booksNames = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the booksNames at the given index.
      */
@@ -183,8 +240,11 @@ public final class SuggestionServiceOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderId_);
+      }
       for (int i = 0; i < booksNames_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, booksNames_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, booksNames_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -195,6 +255,9 @@ public final class SuggestionServiceOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderId_);
+      }
       {
         int dataSize = 0;
         for (int i = 0; i < booksNames_.size(); i++) {
@@ -218,6 +281,8 @@ public final class SuggestionServiceOuterClass {
       }
       com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest other = (com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest) obj;
 
+      if (!getOrderId()
+          .equals(other.getOrderId())) return false;
       if (!getBooksNamesList()
           .equals(other.getBooksNamesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -231,6 +296,8 @@ public final class SuggestionServiceOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrderId().hashCode();
       if (getBooksNamesCount() > 0) {
         hash = (37 * hash) + BOOKSNAMES_FIELD_NUMBER;
         hash = (53 * hash) + getBooksNamesList().hashCode();
@@ -368,6 +435,8 @@ public final class SuggestionServiceOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        orderId_ = "";
+
         booksNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -397,6 +466,7 @@ public final class SuggestionServiceOuterClass {
       public com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest buildPartial() {
         com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest result = new com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest(this);
         int from_bitField0_ = bitField0_;
+        result.orderId_ = orderId_;
         if (((bitField0_ & 0x00000001) != 0)) {
           booksNames_ = booksNames_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -450,6 +520,10 @@ public final class SuggestionServiceOuterClass {
 
       public Builder mergeFrom(com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest other) {
         if (other == com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest.getDefaultInstance()) return this;
+        if (!other.getOrderId().isEmpty()) {
+          orderId_ = other.orderId_;
+          onChanged();
+        }
         if (!other.booksNames_.isEmpty()) {
           if (booksNames_.isEmpty()) {
             booksNames_ = other.booksNames_;
@@ -490,6 +564,82 @@ public final class SuggestionServiceOuterClass {
       }
       private int bitField0_;
 
+      private java.lang.Object orderId_ = "";
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The orderId.
+       */
+      public java.lang.String getOrderId() {
+        java.lang.Object ref = orderId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          orderId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The bytes for orderId.
+       */
+      public com.google.protobuf.ByteString
+          getOrderIdBytes() {
+        java.lang.Object ref = orderId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          orderId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrderId() {
+        
+        orderId_ = getDefaultInstance().getOrderId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The bytes for orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.LazyStringList booksNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureBooksNamesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
@@ -498,7 +648,7 @@ public final class SuggestionServiceOuterClass {
          }
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @return A list containing the booksNames.
        */
       public com.google.protobuf.ProtocolStringList
@@ -506,14 +656,14 @@ public final class SuggestionServiceOuterClass {
         return booksNames_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @return The count of booksNames.
        */
       public int getBooksNamesCount() {
         return booksNames_.size();
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @param index The index of the element to return.
        * @return The booksNames at the given index.
        */
@@ -521,7 +671,7 @@ public final class SuggestionServiceOuterClass {
         return booksNames_.get(index);
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @param index The index of the value to return.
        * @return The bytes of the booksNames at the given index.
        */
@@ -530,7 +680,7 @@ public final class SuggestionServiceOuterClass {
         return booksNames_.getByteString(index);
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @param index The index to set the value at.
        * @param value The booksNames to set.
        * @return This builder for chaining.
@@ -546,7 +696,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @param value The booksNames to add.
        * @return This builder for chaining.
        */
@@ -561,7 +711,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @param values The booksNames to add.
        * @return This builder for chaining.
        */
@@ -574,7 +724,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearBooksNames() {
@@ -584,7 +734,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>repeated string booksNames = 1;</code>
+       * <code>repeated string booksNames = 2;</code>
        * @param value The bytes of the booksNames to add.
        * @return This builder for chaining.
        */
@@ -657,36 +807,48 @@ public final class SuggestionServiceOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string bookName = 1;</code>
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    java.lang.String getOrderId();
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    com.google.protobuf.ByteString
+        getOrderIdBytes();
+
+    /**
+     * <code>string bookName = 2;</code>
      * @return The bookName.
      */
     java.lang.String getBookName();
     /**
-     * <code>string bookName = 1;</code>
+     * <code>string bookName = 2;</code>
      * @return The bytes for bookName.
      */
     com.google.protobuf.ByteString
         getBookNameBytes();
 
     /**
-     * <code>string author = 2;</code>
+     * <code>string author = 3;</code>
      * @return The author.
      */
     java.lang.String getAuthor();
     /**
-     * <code>string author = 2;</code>
+     * <code>string author = 3;</code>
      * @return The bytes for author.
      */
     com.google.protobuf.ByteString
         getAuthorBytes();
 
     /**
-     * <code>string bookId = 3;</code>
+     * <code>string bookId = 4;</code>
      * @return The bookId.
      */
     java.lang.String getBookId();
     /**
-     * <code>string bookId = 3;</code>
+     * <code>string bookId = 4;</code>
      * @return The bytes for bookId.
      */
     com.google.protobuf.ByteString
@@ -705,6 +867,7 @@ public final class SuggestionServiceOuterClass {
       super(builder);
     }
     private SuggestionResponse() {
+      orderId_ = "";
       bookName_ = "";
       author_ = "";
       bookId_ = "";
@@ -743,16 +906,22 @@ public final class SuggestionServiceOuterClass {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              bookName_ = s;
+              orderId_ = s;
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              author_ = s;
+              bookName_ = s;
               break;
             }
             case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              author_ = s;
+              break;
+            }
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               bookId_ = s;
@@ -790,10 +959,48 @@ public final class SuggestionServiceOuterClass {
               com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.class, com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.Builder.class);
     }
 
-    public static final int BOOKNAME_FIELD_NUMBER = 1;
+    public static final int ORDERID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object orderId_;
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The orderId.
+     */
+    @java.lang.Override
+    public java.lang.String getOrderId() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        orderId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string orderId = 1;</code>
+     * @return The bytes for orderId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOrderIdBytes() {
+      java.lang.Object ref = orderId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BOOKNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object bookName_;
     /**
-     * <code>string bookName = 1;</code>
+     * <code>string bookName = 2;</code>
      * @return The bookName.
      */
     @java.lang.Override
@@ -810,7 +1017,7 @@ public final class SuggestionServiceOuterClass {
       }
     }
     /**
-     * <code>string bookName = 1;</code>
+     * <code>string bookName = 2;</code>
      * @return The bytes for bookName.
      */
     @java.lang.Override
@@ -828,10 +1035,10 @@ public final class SuggestionServiceOuterClass {
       }
     }
 
-    public static final int AUTHOR_FIELD_NUMBER = 2;
+    public static final int AUTHOR_FIELD_NUMBER = 3;
     private volatile java.lang.Object author_;
     /**
-     * <code>string author = 2;</code>
+     * <code>string author = 3;</code>
      * @return The author.
      */
     @java.lang.Override
@@ -848,7 +1055,7 @@ public final class SuggestionServiceOuterClass {
       }
     }
     /**
-     * <code>string author = 2;</code>
+     * <code>string author = 3;</code>
      * @return The bytes for author.
      */
     @java.lang.Override
@@ -866,10 +1073,10 @@ public final class SuggestionServiceOuterClass {
       }
     }
 
-    public static final int BOOKID_FIELD_NUMBER = 3;
+    public static final int BOOKID_FIELD_NUMBER = 4;
     private volatile java.lang.Object bookId_;
     /**
-     * <code>string bookId = 3;</code>
+     * <code>string bookId = 4;</code>
      * @return The bookId.
      */
     @java.lang.Override
@@ -886,7 +1093,7 @@ public final class SuggestionServiceOuterClass {
       }
     }
     /**
-     * <code>string bookId = 3;</code>
+     * <code>string bookId = 4;</code>
      * @return The bytes for bookId.
      */
     @java.lang.Override
@@ -918,14 +1125,17 @@ public final class SuggestionServiceOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, bookName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, bookName_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(author_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, author_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, author_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, bookId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, bookId_);
       }
       unknownFields.writeTo(output);
     }
@@ -936,14 +1146,17 @@ public final class SuggestionServiceOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, bookName_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, bookName_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(author_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, author_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, author_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bookId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, bookId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, bookId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -960,6 +1173,8 @@ public final class SuggestionServiceOuterClass {
       }
       com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse other = (com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse) obj;
 
+      if (!getOrderId()
+          .equals(other.getOrderId())) return false;
       if (!getBookName()
           .equals(other.getBookName())) return false;
       if (!getAuthor()
@@ -977,6 +1192,8 @@ public final class SuggestionServiceOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrderId().hashCode();
       hash = (37 * hash) + BOOKNAME_FIELD_NUMBER;
       hash = (53 * hash) + getBookName().hashCode();
       hash = (37 * hash) + AUTHOR_FIELD_NUMBER;
@@ -1116,6 +1333,8 @@ public final class SuggestionServiceOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        orderId_ = "";
+
         bookName_ = "";
 
         author_ = "";
@@ -1148,6 +1367,7 @@ public final class SuggestionServiceOuterClass {
       @java.lang.Override
       public com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse buildPartial() {
         com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse result = new com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse(this);
+        result.orderId_ = orderId_;
         result.bookName_ = bookName_;
         result.author_ = author_;
         result.bookId_ = bookId_;
@@ -1199,6 +1419,10 @@ public final class SuggestionServiceOuterClass {
 
       public Builder mergeFrom(com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse other) {
         if (other == com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.getDefaultInstance()) return this;
+        if (!other.getOrderId().isEmpty()) {
+          orderId_ = other.orderId_;
+          onChanged();
+        }
         if (!other.getBookName().isEmpty()) {
           bookName_ = other.bookName_;
           onChanged();
@@ -1240,9 +1464,85 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
 
+      private java.lang.Object orderId_ = "";
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The orderId.
+       */
+      public java.lang.String getOrderId() {
+        java.lang.Object ref = orderId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          orderId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return The bytes for orderId.
+       */
+      public com.google.protobuf.ByteString
+          getOrderIdBytes() {
+        java.lang.Object ref = orderId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          orderId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrderId() {
+        
+        orderId_ = getDefaultInstance().getOrderId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string orderId = 1;</code>
+       * @param value The bytes for orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object bookName_ = "";
       /**
-       * <code>string bookName = 1;</code>
+       * <code>string bookName = 2;</code>
        * @return The bookName.
        */
       public java.lang.String getBookName() {
@@ -1258,7 +1558,7 @@ public final class SuggestionServiceOuterClass {
         }
       }
       /**
-       * <code>string bookName = 1;</code>
+       * <code>string bookName = 2;</code>
        * @return The bytes for bookName.
        */
       public com.google.protobuf.ByteString
@@ -1275,7 +1575,7 @@ public final class SuggestionServiceOuterClass {
         }
       }
       /**
-       * <code>string bookName = 1;</code>
+       * <code>string bookName = 2;</code>
        * @param value The bookName to set.
        * @return This builder for chaining.
        */
@@ -1290,7 +1590,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>string bookName = 1;</code>
+       * <code>string bookName = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearBookName() {
@@ -1300,7 +1600,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>string bookName = 1;</code>
+       * <code>string bookName = 2;</code>
        * @param value The bytes for bookName to set.
        * @return This builder for chaining.
        */
@@ -1318,7 +1618,7 @@ public final class SuggestionServiceOuterClass {
 
       private java.lang.Object author_ = "";
       /**
-       * <code>string author = 2;</code>
+       * <code>string author = 3;</code>
        * @return The author.
        */
       public java.lang.String getAuthor() {
@@ -1334,7 +1634,7 @@ public final class SuggestionServiceOuterClass {
         }
       }
       /**
-       * <code>string author = 2;</code>
+       * <code>string author = 3;</code>
        * @return The bytes for author.
        */
       public com.google.protobuf.ByteString
@@ -1351,7 +1651,7 @@ public final class SuggestionServiceOuterClass {
         }
       }
       /**
-       * <code>string author = 2;</code>
+       * <code>string author = 3;</code>
        * @param value The author to set.
        * @return This builder for chaining.
        */
@@ -1366,7 +1666,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>string author = 2;</code>
+       * <code>string author = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearAuthor() {
@@ -1376,7 +1676,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>string author = 2;</code>
+       * <code>string author = 3;</code>
        * @param value The bytes for author to set.
        * @return This builder for chaining.
        */
@@ -1394,7 +1694,7 @@ public final class SuggestionServiceOuterClass {
 
       private java.lang.Object bookId_ = "";
       /**
-       * <code>string bookId = 3;</code>
+       * <code>string bookId = 4;</code>
        * @return The bookId.
        */
       public java.lang.String getBookId() {
@@ -1410,7 +1710,7 @@ public final class SuggestionServiceOuterClass {
         }
       }
       /**
-       * <code>string bookId = 3;</code>
+       * <code>string bookId = 4;</code>
        * @return The bytes for bookId.
        */
       public com.google.protobuf.ByteString
@@ -1427,7 +1727,7 @@ public final class SuggestionServiceOuterClass {
         }
       }
       /**
-       * <code>string bookId = 3;</code>
+       * <code>string bookId = 4;</code>
        * @param value The bookId to set.
        * @return This builder for chaining.
        */
@@ -1442,7 +1742,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>string bookId = 3;</code>
+       * <code>string bookId = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearBookId() {
@@ -1452,7 +1752,7 @@ public final class SuggestionServiceOuterClass {
         return this;
       }
       /**
-       * <code>string bookId = 3;</code>
+       * <code>string bookId = 4;</code>
        * @param value The bytes for bookId to set.
        * @return This builder for chaining.
        */
@@ -1540,14 +1840,15 @@ public final class SuggestionServiceOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\027SuggestionService.proto\022$com.dspractic" +
-      "e.bookstore.commonproto\"\'\n\021SuggestionReq" +
-      "uest\022\022\n\nbooksNames\030\001 \003(\t\"F\n\022SuggestionRe" +
-      "sponse\022\020\n\010bookName\030\001 \001(\t\022\016\n\006author\030\002 \001(\t" +
-      "\022\016\n\006bookId\030\003 \001(\t2\221\001\n\021SuggestionService\022|" +
-      "\n\007suggest\0227.com.dspractice.bookstore.com" +
-      "monproto.SuggestionRequest\0328.com.dspract" +
-      "ice.bookstore.commonproto.SuggestionResp" +
-      "onseb\006proto3"
+      "e.bookstore.commonproto\"8\n\021SuggestionReq" +
+      "uest\022\017\n\007orderId\030\001 \001(\t\022\022\n\nbooksNames\030\002 \003(" +
+      "\t\"W\n\022SuggestionResponse\022\017\n\007orderId\030\001 \001(\t" +
+      "\022\020\n\010bookName\030\002 \001(\t\022\016\n\006author\030\003 \001(\t\022\016\n\006bo" +
+      "okId\030\004 \001(\t2\221\001\n\021SuggestionService\022|\n\007sugg" +
+      "est\0227.com.dspractice.bookstore.commonpro" +
+      "to.SuggestionRequest\0328.com.dspractice.bo" +
+      "okstore.commonproto.SuggestionResponseb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1558,13 +1859,13 @@ public final class SuggestionServiceOuterClass {
     internal_static_com_dspractice_bookstore_commonproto_SuggestionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_SuggestionRequest_descriptor,
-        new java.lang.String[] { "BooksNames", });
+        new java.lang.String[] { "OrderId", "BooksNames", });
     internal_static_com_dspractice_bookstore_commonproto_SuggestionResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_dspractice_bookstore_commonproto_SuggestionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_SuggestionResponse_descriptor,
-        new java.lang.String[] { "BookName", "Author", "BookId", });
+        new java.lang.String[] { "OrderId", "BookName", "Author", "BookId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

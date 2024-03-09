@@ -2,13 +2,15 @@ syntax = "proto3";
 package com.dspractice.bookstore.commonproto;
 
 message SuggestionRequest {
-  repeated string booksNames = 1;
+  string orderId = 1;
+  repeated string booksNames = 2;
 }
 
 message SuggestionResponse {
-  string bookName = 1;
-  string author = 2;
-  string bookId = 3;
+  string orderId = 1;
+  string bookName = 2;
+  string author = 3;
+  string bookId = 4;
 }
 
 service SuggestionService {

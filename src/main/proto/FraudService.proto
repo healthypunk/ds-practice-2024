@@ -17,12 +17,14 @@ message BillingAddress {
 }
 
 message FraudDetectionRequest {
-    CreditCardInformation card = 1;
-    BillingAddress address = 2;
+  string orderId = 1;
+  CreditCardInformation card = 2;
+  BillingAddress address = 3;
 }
 
 message FraudDetectionResponse {
-  bool fraud = 1;
+  string orderId = 1;
+  bool fraud = 2;
 }
 
 service FraudDetectionService {

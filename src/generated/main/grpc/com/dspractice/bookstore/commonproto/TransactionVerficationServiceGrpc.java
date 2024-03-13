@@ -15,35 +15,66 @@ public final class TransactionVerficationServiceGrpc {
   public static final String SERVICE_NAME = "com.dspractice.bookstore.commonproto.TransactionVerficationService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest,
-      com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse> getVerifyMethod;
+  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionBooksRequest,
+      com.dspractice.bookstore.commonproto.TransactionBooksResponse> getVerifyBooksMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "verify",
-      requestType = com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest.class,
-      responseType = com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "verifyBooks",
+      requestType = com.dspractice.bookstore.commonproto.TransactionBooksRequest.class,
+      responseType = com.dspractice.bookstore.commonproto.TransactionBooksResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest,
-      com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse> getVerifyMethod() {
-    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest, com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse> getVerifyMethod;
-    if ((getVerifyMethod = TransactionVerficationServiceGrpc.getVerifyMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionBooksRequest,
+      com.dspractice.bookstore.commonproto.TransactionBooksResponse> getVerifyBooksMethod() {
+    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionBooksRequest, com.dspractice.bookstore.commonproto.TransactionBooksResponse> getVerifyBooksMethod;
+    if ((getVerifyBooksMethod = TransactionVerficationServiceGrpc.getVerifyBooksMethod) == null) {
       synchronized (TransactionVerficationServiceGrpc.class) {
-        if ((getVerifyMethod = TransactionVerficationServiceGrpc.getVerifyMethod) == null) {
-          TransactionVerficationServiceGrpc.getVerifyMethod = getVerifyMethod =
-              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest, com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse>newBuilder()
+        if ((getVerifyBooksMethod = TransactionVerficationServiceGrpc.getVerifyBooksMethod) == null) {
+          TransactionVerficationServiceGrpc.getVerifyBooksMethod = getVerifyBooksMethod =
+              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.TransactionBooksRequest, com.dspractice.bookstore.commonproto.TransactionBooksResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "verify"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "verifyBooks"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest.getDefaultInstance()))
+                  com.dspractice.bookstore.commonproto.TransactionBooksRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TransactionVerficationServiceMethodDescriptorSupplier("verify"))
+                  com.dspractice.bookstore.commonproto.TransactionBooksResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TransactionVerficationServiceMethodDescriptorSupplier("verifyBooks"))
               .build();
         }
       }
     }
-    return getVerifyMethod;
+    return getVerifyBooksMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionCreditCardRequest,
+      com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> getVerifyCreditCardMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "verifyCreditCard",
+      requestType = com.dspractice.bookstore.commonproto.TransactionCreditCardRequest.class,
+      responseType = com.dspractice.bookstore.commonproto.TransactionCreditCardResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionCreditCardRequest,
+      com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> getVerifyCreditCardMethod() {
+    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionCreditCardRequest, com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> getVerifyCreditCardMethod;
+    if ((getVerifyCreditCardMethod = TransactionVerficationServiceGrpc.getVerifyCreditCardMethod) == null) {
+      synchronized (TransactionVerficationServiceGrpc.class) {
+        if ((getVerifyCreditCardMethod = TransactionVerficationServiceGrpc.getVerifyCreditCardMethod) == null) {
+          TransactionVerficationServiceGrpc.getVerifyCreditCardMethod = getVerifyCreditCardMethod =
+              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.TransactionCreditCardRequest, com.dspractice.bookstore.commonproto.TransactionCreditCardResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "verifyCreditCard"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.dspractice.bookstore.commonproto.TransactionCreditCardRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.dspractice.bookstore.commonproto.TransactionCreditCardResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TransactionVerficationServiceMethodDescriptorSupplier("verifyCreditCard"))
+              .build();
+        }
+      }
+    }
+    return getVerifyCreditCardMethod;
   }
 
   /**
@@ -96,20 +127,34 @@ public final class TransactionVerficationServiceGrpc {
 
     /**
      */
-    public void verify(com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest request,
-        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getVerifyMethod(), responseObserver);
+    public void verifyBooks(com.dspractice.bookstore.commonproto.TransactionBooksRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionBooksResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getVerifyBooksMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void verifyCreditCard(com.dspractice.bookstore.commonproto.TransactionCreditCardRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getVerifyCreditCardMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getVerifyMethod(),
+            getVerifyBooksMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest,
-                com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse>(
-                  this, METHODID_VERIFY)))
+                com.dspractice.bookstore.commonproto.TransactionBooksRequest,
+                com.dspractice.bookstore.commonproto.TransactionBooksResponse>(
+                  this, METHODID_VERIFY_BOOKS)))
+          .addMethod(
+            getVerifyCreditCardMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.dspractice.bookstore.commonproto.TransactionCreditCardRequest,
+                com.dspractice.bookstore.commonproto.TransactionCreditCardResponse>(
+                  this, METHODID_VERIFY_CREDIT_CARD)))
           .build();
     }
   }
@@ -130,10 +175,18 @@ public final class TransactionVerficationServiceGrpc {
 
     /**
      */
-    public void verify(com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest request,
-        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse> responseObserver) {
+    public void verifyBooks(com.dspractice.bookstore.commonproto.TransactionBooksRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionBooksResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getVerifyMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getVerifyBooksMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void verifyCreditCard(com.dspractice.bookstore.commonproto.TransactionCreditCardRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getVerifyCreditCardMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -153,9 +206,16 @@ public final class TransactionVerficationServiceGrpc {
 
     /**
      */
-    public com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse verify(com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest request) {
+    public com.dspractice.bookstore.commonproto.TransactionBooksResponse verifyBooks(com.dspractice.bookstore.commonproto.TransactionBooksRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getVerifyMethod(), getCallOptions(), request);
+          getChannel(), getVerifyBooksMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.dspractice.bookstore.commonproto.TransactionCreditCardResponse verifyCreditCard(com.dspractice.bookstore.commonproto.TransactionCreditCardRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getVerifyCreditCardMethod(), getCallOptions(), request);
     }
   }
 
@@ -175,14 +235,23 @@ public final class TransactionVerficationServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse> verify(
-        com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.TransactionBooksResponse> verifyBooks(
+        com.dspractice.bookstore.commonproto.TransactionBooksRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getVerifyMethod(), getCallOptions()), request);
+          getChannel().newCall(getVerifyBooksMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> verifyCreditCard(
+        com.dspractice.bookstore.commonproto.TransactionCreditCardRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getVerifyCreditCardMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_VERIFY = 0;
+  private static final int METHODID_VERIFY_BOOKS = 0;
+  private static final int METHODID_VERIFY_CREDIT_CARD = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -201,9 +270,13 @@ public final class TransactionVerficationServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_VERIFY:
-          serviceImpl.verify((com.dspractice.bookstore.commonproto.TransactionVerification.TransactionRequest) request,
-              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionVerification.TransactionResponse>) responseObserver);
+        case METHODID_VERIFY_BOOKS:
+          serviceImpl.verifyBooks((com.dspractice.bookstore.commonproto.TransactionBooksRequest) request,
+              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionBooksResponse>) responseObserver);
+          break;
+        case METHODID_VERIFY_CREDIT_CARD:
+          serviceImpl.verifyCreditCard((com.dspractice.bookstore.commonproto.TransactionCreditCardRequest) request,
+              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.TransactionCreditCardResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -266,7 +339,8 @@ public final class TransactionVerficationServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new TransactionVerficationServiceFileDescriptorSupplier())
-              .addMethod(getVerifyMethod())
+              .addMethod(getVerifyBooksMethod())
+              .addMethod(getVerifyCreditCardMethod())
               .build();
         }
       }

@@ -1,23 +1,39 @@
 syntax = "proto3";
 package com.dspractice.bookstore.commonproto;
+option java_multiple_files = true;
 
-message CardInformation {
+message CreditCard {
   string number = 1;
   string expiration_date = 2;
   string cvv = 3;
 }
 
-message TransactionRequest {
+message TransactionCreditCardRequest {
   string orderId = 1;
-  CardInformation card = 2;
+  CreditCard card = 2;
 }
 
-message TransactionResponse {
+message TransactionCreditCardResponse {
   string orderId = 1;
-  string id = 2;
+  string verificationStatus = 2;
+}
+
+message Item {
+  string name = 1;
+  string quantity =2;
+}
+
+message TransactionBooksRequest {
+  string orderId = 1;
+  repeated Item books = 2;
+}
+
+message TransactionBooksResponse {
+  string orderId = 1;
 }
 
 service TransactionVerficationService {
-  rpc verify (TransactionRequest) returns (TransactionResponse);
+  rpc verifyBooks (TransactionBooksRequest) returns (TransactionBooksResponse);
+  rpc verifyCreditCard (TransactionCreditCardRequest) returns (TransactionCreditCardResponse);
 }
 

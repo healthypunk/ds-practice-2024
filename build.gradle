@@ -23,6 +23,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation 'net.devh:grpc-spring-boot-starter:3.0.0.RELEASE'
     compileOnly 'jakarta.annotation:jakarta.annotation-api:1.3.5'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
 }
 
 test {

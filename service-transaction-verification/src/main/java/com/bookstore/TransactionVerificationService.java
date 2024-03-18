@@ -1,5 +1,6 @@
 package com.bookstore;
 
+import com.bookstore.validators.BookValidator;
 import com.bookstore.validators.CreditCardValidator;
 import com.dspractice.bookstore.commonproto.*;
 import io.grpc.Status;
@@ -16,6 +17,10 @@ public class TransactionVerificationService extends TransactionVerficationServic
     @Override
     public void verifyBooks(TransactionBooksRequest request, StreamObserver<TransactionBooksResponse> responseObserver) {
         log.info("[Order ID: {}] {}", request.getOrderId(), "Request for verification");
+        if (!BookValidator.validateRequest(request)) {
+            responseObserver.onError(Status.INVALID_ARGUMENT.asException());
+            return;
+        }
         TransactionBooksResponse response = TransactionBooksResponse.newBuilder()
                 .setOrderId(request.getOrderId()).build();
         responseObserver.onNext(response);

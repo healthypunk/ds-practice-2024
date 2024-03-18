@@ -1,15 +1,17 @@
 package com.bookstore;
 
+import com.bookstore.validators.CreditCardValidator;
 import com.dspractice.bookstore.commonproto.*;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 
-import java.util.UUID;
-
 @Slf4j
 @GrpcService
-public class TransactionVerificationService extends TransactionVerficationServiceGrpc.TransactionVerficationServiceImplBase{
+@RequiredArgsConstructor
+public class TransactionVerificationService extends TransactionVerficationServiceGrpc.TransactionVerficationServiceImplBase {
 
     @Override
     public void verifyBooks(TransactionBooksRequest request, StreamObserver<TransactionBooksResponse> responseObserver) {
@@ -24,10 +26,16 @@ public class TransactionVerificationService extends TransactionVerficationServic
     @Override
     public void verifyCreditCard(TransactionCreditCardRequest request, StreamObserver<TransactionCreditCardResponse> responseObserver) {
         log.info("[Order ID: {}] {}", request.getOrderId(), "Request for verification");
+        if (!CreditCardValidator.validateRequest(request)) {
+            responseObserver.onError(Status.INVALID_ARGUMENT.asException());
+            return;
+        }
+        if (!CreditCardValidator.validateCreditCard(request)) {
+            responseObserver.onError(Status.INVALID_ARGUMENT.withDescription("Card number or cvv are incorrect").asException());
+            return;
+        }
         TransactionCreditCardResponse response = TransactionCreditCardResponse.newBuilder()
                 .setOrderId(request.getOrderId()).build();
-        // TODO: Add mandatory fields
-        // TODO: Add try catch handler
         responseObserver.onNext(response);
         responseObserver.onCompleted();
         log.info("[Order ID: {}] {}, {}", request.getOrderId(), "Card verification result: ", false);

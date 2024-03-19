@@ -2,7 +2,6 @@ package com.bookstore.client.services;
 
 import com.bookstore.client.models.OrderRequest;
 import com.dspractice.bookstore.commonproto.FraudDetectionServiceGrpc;
-import com.dspractice.bookstore.commonproto.FraudService;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 

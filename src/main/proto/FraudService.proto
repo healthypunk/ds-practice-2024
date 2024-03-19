@@ -1,6 +1,6 @@
 syntax = "proto3";
 package com.dspractice.bookstore.commonproto;
-
+option java_multiple_files = true;
 
 message FraudCreditCard {
   string number = 1;
@@ -28,6 +28,11 @@ message FraudCreditCardDetectionResponse {
 
 message FraudUserDataRequest {
   string orderId = 1;
+  string deviceType = 2;
+  string deviceModel = 3;
+  string deviceOs = 4;
+  string browserName = 5;
+  string browserVersion = 6;
 }
 
 message FraudUserDataResponse {

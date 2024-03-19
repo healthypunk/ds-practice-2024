@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class OrderRequest {
+    private String id;
     private User user;
     private CreditCard creditCard;
     private String userComment;

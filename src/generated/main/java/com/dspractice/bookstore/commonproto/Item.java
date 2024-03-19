@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private Item() {
     name_ = "";
-    quantity_ = "";
   }
 
   @java.lang.Override
@@ -56,10 +55,9 @@ private static final long serialVersionUID = 0L;
             name_ = s;
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
 
-            quantity_ = s;
+            quantity_ = input.readInt32();
             break;
           }
           default: {
@@ -133,41 +131,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUANTITY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object quantity_;
+  private int quantity_;
   /**
-   * <code>string quantity = 2;</code>
+   * <code>int32 quantity = 2;</code>
    * @return The quantity.
    */
   @java.lang.Override
-  public java.lang.String getQuantity() {
-    java.lang.Object ref = quantity_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      quantity_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string quantity = 2;</code>
-   * @return The bytes for quantity.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getQuantityBytes() {
-    java.lang.Object ref = quantity_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      quantity_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getQuantity() {
+    return quantity_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -187,8 +158,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quantity_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, quantity_);
+    if (quantity_ != 0) {
+      output.writeInt32(2, quantity_);
     }
     unknownFields.writeTo(output);
   }
@@ -202,8 +173,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quantity_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, quantity_);
+    if (quantity_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, quantity_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -222,8 +194,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getName()
         .equals(other.getName())) return false;
-    if (!getQuantity()
-        .equals(other.getQuantity())) return false;
+    if (getQuantity()
+        != other.getQuantity()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -238,7 +210,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
-    hash = (53 * hash) + getQuantity().hashCode();
+    hash = (53 * hash) + getQuantity();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -374,7 +346,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       name_ = "";
 
-      quantity_ = "";
+      quantity_ = 0;
 
       return this;
     }
@@ -456,9 +428,8 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (!other.getQuantity().isEmpty()) {
-        quantity_ = other.quantity_;
-        onChanged();
+      if (other.getQuantity() != 0) {
+        setQuantity(other.getQuantity());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -565,78 +536,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object quantity_ = "";
+    private int quantity_ ;
     /**
-     * <code>string quantity = 2;</code>
+     * <code>int32 quantity = 2;</code>
      * @return The quantity.
      */
-    public java.lang.String getQuantity() {
-      java.lang.Object ref = quantity_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        quantity_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getQuantity() {
+      return quantity_;
     }
     /**
-     * <code>string quantity = 2;</code>
-     * @return The bytes for quantity.
-     */
-    public com.google.protobuf.ByteString
-        getQuantityBytes() {
-      java.lang.Object ref = quantity_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        quantity_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string quantity = 2;</code>
+     * <code>int32 quantity = 2;</code>
      * @param value The quantity to set.
      * @return This builder for chaining.
      */
-    public Builder setQuantity(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setQuantity(int value) {
+      
       quantity_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string quantity = 2;</code>
+     * <code>int32 quantity = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearQuantity() {
       
-      quantity_ = getDefaultInstance().getQuantity();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string quantity = 2;</code>
-     * @param value The bytes for quantity to set.
-     * @return This builder for chaining.
-     */
-    public Builder setQuantityBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      quantity_ = value;
+      quantity_ = 0;
       onChanged();
       return this;
     }

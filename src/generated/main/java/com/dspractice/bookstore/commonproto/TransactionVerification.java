@@ -44,6 +44,16 @@ public final class TransactionVerification {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dspractice_bookstore_commonproto_TransactionBooksResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dspractice_bookstore_commonproto_TransactionContactRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dspractice_bookstore_commonproto_TransactionContactRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dspractice_bookstore_commonproto_TransactionContactResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dspractice_bookstore_commonproto_TransactionContactResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -65,16 +75,22 @@ public final class TransactionVerification {
       "ty\030\002 \001(\t\"e\n\027TransactionBooksRequest\022\017\n\007o" +
       "rderId\030\001 \001(\t\0229\n\005books\030\002 \003(\0132*.com.dsprac" +
       "tice.bookstore.commonproto.Item\"+\n\030Trans" +
-      "actionBooksResponse\022\017\n\007orderId\030\001 \001(\t2\314\002\n" +
-      "\035TransactionVerficationService\022\214\001\n\013verif" +
-      "yBooks\022=.com.dspractice.bookstore.common" +
-      "proto.TransactionBooksRequest\032>.com.dspr" +
-      "actice.bookstore.commonproto.Transaction" +
-      "BooksResponse\022\233\001\n\020verifyCreditCard\022B.com" +
-      ".dspractice.bookstore.commonproto.Transa" +
-      "ctionCreditCardRequest\032C.com.dspractice." +
-      "bookstore.commonproto.TransactionCreditC" +
-      "ardResponseB\002P\001b\006proto3"
+      "actionBooksResponse\022\017\n\007orderId\030\001 \001(\t\",\n\031" +
+      "TransactionContactRequest\022\017\n\007orderId\030\001 \001" +
+      "(\t\"-\n\032TransactionContactResponse\022\017\n\007orde" +
+      "rId\030\001 \001(\t2\342\003\n\036TransactionVerificationSer" +
+      "vice\022\214\001\n\013verifyBooks\022=.com.dspractice.bo" +
+      "okstore.commonproto.TransactionBooksRequ" +
+      "est\032>.com.dspractice.bookstore.commonpro" +
+      "to.TransactionBooksResponse\022\233\001\n\020verifyCr" +
+      "editCard\022B.com.dspractice.bookstore.comm" +
+      "onproto.TransactionCreditCardRequest\032C.c" +
+      "om.dspractice.bookstore.commonproto.Tran" +
+      "sactionCreditCardResponse\022\222\001\n\rverifyCont" +
+      "act\022?.com.dspractice.bookstore.commonpro" +
+      "to.TransactionContactRequest\032@.com.dspra" +
+      "ctice.bookstore.commonproto.TransactionC" +
+      "ontactResponseB\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -115,6 +131,18 @@ public final class TransactionVerification {
     internal_static_com_dspractice_bookstore_commonproto_TransactionBooksResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_TransactionBooksResponse_descriptor,
+        new java.lang.String[] { "OrderId", });
+    internal_static_com_dspractice_bookstore_commonproto_TransactionContactRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_dspractice_bookstore_commonproto_TransactionContactRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dspractice_bookstore_commonproto_TransactionContactRequest_descriptor,
+        new java.lang.String[] { "OrderId", });
+    internal_static_com_dspractice_bookstore_commonproto_TransactionContactResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_com_dspractice_bookstore_commonproto_TransactionContactResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dspractice_bookstore_commonproto_TransactionContactResponse_descriptor,
         new java.lang.String[] { "OrderId", });
   }
 

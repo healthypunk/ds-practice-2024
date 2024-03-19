@@ -32,8 +32,16 @@ message TransactionBooksResponse {
   string orderId = 1;
 }
 
-service TransactionVerficationService {
+message TransactionContactRequest {
+  string orderId = 1;
+}
+message TransactionContactResponse {
+  string orderId = 1;
+}
+
+service TransactionVerificationService {
   rpc verifyBooks (TransactionBooksRequest) returns (TransactionBooksResponse);
   rpc verifyCreditCard (TransactionCreditCardRequest) returns (TransactionCreditCardResponse);
+  rpc verifyContact (TransactionContactRequest) returns (TransactionContactResponse);
 }
 

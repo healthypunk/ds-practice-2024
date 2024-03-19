@@ -8,11 +8,11 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
     value = "by gRPC proto compiler (version 1.42.1)",
     comments = "Source: TransactionVerification.proto")
 @io.grpc.stub.annotations.GrpcGenerated
-public final class TransactionVerficationServiceGrpc {
+public final class TransactionVerificationServiceGrpc {
 
-  private TransactionVerficationServiceGrpc() {}
+  private TransactionVerificationServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "com.dspractice.bookstore.commonproto.TransactionVerficationService";
+  public static final String SERVICE_NAME = "com.dspractice.bookstore.commonproto.TransactionVerificationService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionBooksRequest,
@@ -26,10 +26,10 @@ public final class TransactionVerficationServiceGrpc {
   public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionBooksRequest,
       com.dspractice.bookstore.commonproto.TransactionBooksResponse> getVerifyBooksMethod() {
     io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionBooksRequest, com.dspractice.bookstore.commonproto.TransactionBooksResponse> getVerifyBooksMethod;
-    if ((getVerifyBooksMethod = TransactionVerficationServiceGrpc.getVerifyBooksMethod) == null) {
-      synchronized (TransactionVerficationServiceGrpc.class) {
-        if ((getVerifyBooksMethod = TransactionVerficationServiceGrpc.getVerifyBooksMethod) == null) {
-          TransactionVerficationServiceGrpc.getVerifyBooksMethod = getVerifyBooksMethod =
+    if ((getVerifyBooksMethod = TransactionVerificationServiceGrpc.getVerifyBooksMethod) == null) {
+      synchronized (TransactionVerificationServiceGrpc.class) {
+        if ((getVerifyBooksMethod = TransactionVerificationServiceGrpc.getVerifyBooksMethod) == null) {
+          TransactionVerificationServiceGrpc.getVerifyBooksMethod = getVerifyBooksMethod =
               io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.TransactionBooksRequest, com.dspractice.bookstore.commonproto.TransactionBooksResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "verifyBooks"))
@@ -38,7 +38,7 @@ public final class TransactionVerficationServiceGrpc {
                   com.dspractice.bookstore.commonproto.TransactionBooksRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.dspractice.bookstore.commonproto.TransactionBooksResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TransactionVerficationServiceMethodDescriptorSupplier("verifyBooks"))
+              .setSchemaDescriptor(new TransactionVerificationServiceMethodDescriptorSupplier("verifyBooks"))
               .build();
         }
       }
@@ -57,10 +57,10 @@ public final class TransactionVerficationServiceGrpc {
   public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionCreditCardRequest,
       com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> getVerifyCreditCardMethod() {
     io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionCreditCardRequest, com.dspractice.bookstore.commonproto.TransactionCreditCardResponse> getVerifyCreditCardMethod;
-    if ((getVerifyCreditCardMethod = TransactionVerficationServiceGrpc.getVerifyCreditCardMethod) == null) {
-      synchronized (TransactionVerficationServiceGrpc.class) {
-        if ((getVerifyCreditCardMethod = TransactionVerficationServiceGrpc.getVerifyCreditCardMethod) == null) {
-          TransactionVerficationServiceGrpc.getVerifyCreditCardMethod = getVerifyCreditCardMethod =
+    if ((getVerifyCreditCardMethod = TransactionVerificationServiceGrpc.getVerifyCreditCardMethod) == null) {
+      synchronized (TransactionVerificationServiceGrpc.class) {
+        if ((getVerifyCreditCardMethod = TransactionVerificationServiceGrpc.getVerifyCreditCardMethod) == null) {
+          TransactionVerificationServiceGrpc.getVerifyCreditCardMethod = getVerifyCreditCardMethod =
               io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.TransactionCreditCardRequest, com.dspractice.bookstore.commonproto.TransactionCreditCardResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "verifyCreditCard"))
@@ -69,7 +69,7 @@ public final class TransactionVerficationServiceGrpc {
                   com.dspractice.bookstore.commonproto.TransactionCreditCardRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.dspractice.bookstore.commonproto.TransactionCreditCardResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TransactionVerficationServiceMethodDescriptorSupplier("verifyCreditCard"))
+              .setSchemaDescriptor(new TransactionVerificationServiceMethodDescriptorSupplier("verifyCreditCard"))
               .build();
         }
       }
@@ -88,10 +88,10 @@ public final class TransactionVerficationServiceGrpc {
   public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionContactRequest,
       com.dspractice.bookstore.commonproto.TransactionContactResponse> getVerifyContactMethod() {
     io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.TransactionContactRequest, com.dspractice.bookstore.commonproto.TransactionContactResponse> getVerifyContactMethod;
-    if ((getVerifyContactMethod = TransactionVerficationServiceGrpc.getVerifyContactMethod) == null) {
-      synchronized (TransactionVerficationServiceGrpc.class) {
-        if ((getVerifyContactMethod = TransactionVerficationServiceGrpc.getVerifyContactMethod) == null) {
-          TransactionVerficationServiceGrpc.getVerifyContactMethod = getVerifyContactMethod =
+    if ((getVerifyContactMethod = TransactionVerificationServiceGrpc.getVerifyContactMethod) == null) {
+      synchronized (TransactionVerificationServiceGrpc.class) {
+        if ((getVerifyContactMethod = TransactionVerificationServiceGrpc.getVerifyContactMethod) == null) {
+          TransactionVerificationServiceGrpc.getVerifyContactMethod = getVerifyContactMethod =
               io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.TransactionContactRequest, com.dspractice.bookstore.commonproto.TransactionContactResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "verifyContact"))
@@ -100,7 +100,7 @@ public final class TransactionVerficationServiceGrpc {
                   com.dspractice.bookstore.commonproto.TransactionContactRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.dspractice.bookstore.commonproto.TransactionContactResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TransactionVerficationServiceMethodDescriptorSupplier("verifyContact"))
+              .setSchemaDescriptor(new TransactionVerificationServiceMethodDescriptorSupplier("verifyContact"))
               .build();
         }
       }
@@ -111,50 +111,50 @@ public final class TransactionVerficationServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static TransactionVerficationServiceStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<TransactionVerficationServiceStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<TransactionVerficationServiceStub>() {
+  public static TransactionVerificationServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<TransactionVerificationServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<TransactionVerificationServiceStub>() {
         @java.lang.Override
-        public TransactionVerficationServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new TransactionVerficationServiceStub(channel, callOptions);
+        public TransactionVerificationServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new TransactionVerificationServiceStub(channel, callOptions);
         }
       };
-    return TransactionVerficationServiceStub.newStub(factory, channel);
+    return TransactionVerificationServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static TransactionVerficationServiceBlockingStub newBlockingStub(
+  public static TransactionVerificationServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<TransactionVerficationServiceBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<TransactionVerficationServiceBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<TransactionVerificationServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<TransactionVerificationServiceBlockingStub>() {
         @java.lang.Override
-        public TransactionVerficationServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new TransactionVerficationServiceBlockingStub(channel, callOptions);
+        public TransactionVerificationServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new TransactionVerificationServiceBlockingStub(channel, callOptions);
         }
       };
-    return TransactionVerficationServiceBlockingStub.newStub(factory, channel);
+    return TransactionVerificationServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static TransactionVerficationServiceFutureStub newFutureStub(
+  public static TransactionVerificationServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<TransactionVerficationServiceFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<TransactionVerficationServiceFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<TransactionVerificationServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<TransactionVerificationServiceFutureStub>() {
         @java.lang.Override
-        public TransactionVerficationServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new TransactionVerficationServiceFutureStub(channel, callOptions);
+        public TransactionVerificationServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new TransactionVerificationServiceFutureStub(channel, callOptions);
         }
       };
-    return TransactionVerficationServiceFutureStub.newStub(factory, channel);
+    return TransactionVerificationServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class TransactionVerficationServiceImplBase implements io.grpc.BindableService {
+  public static abstract class TransactionVerificationServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -206,16 +206,16 @@ public final class TransactionVerficationServiceGrpc {
 
   /**
    */
-  public static final class TransactionVerficationServiceStub extends io.grpc.stub.AbstractAsyncStub<TransactionVerficationServiceStub> {
-    private TransactionVerficationServiceStub(
+  public static final class TransactionVerificationServiceStub extends io.grpc.stub.AbstractAsyncStub<TransactionVerificationServiceStub> {
+    private TransactionVerificationServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected TransactionVerficationServiceStub build(
+    protected TransactionVerificationServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new TransactionVerficationServiceStub(channel, callOptions);
+      return new TransactionVerificationServiceStub(channel, callOptions);
     }
 
     /**
@@ -245,16 +245,16 @@ public final class TransactionVerficationServiceGrpc {
 
   /**
    */
-  public static final class TransactionVerficationServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<TransactionVerficationServiceBlockingStub> {
-    private TransactionVerficationServiceBlockingStub(
+  public static final class TransactionVerificationServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<TransactionVerificationServiceBlockingStub> {
+    private TransactionVerificationServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected TransactionVerficationServiceBlockingStub build(
+    protected TransactionVerificationServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new TransactionVerficationServiceBlockingStub(channel, callOptions);
+      return new TransactionVerificationServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -281,16 +281,16 @@ public final class TransactionVerficationServiceGrpc {
 
   /**
    */
-  public static final class TransactionVerficationServiceFutureStub extends io.grpc.stub.AbstractFutureStub<TransactionVerficationServiceFutureStub> {
-    private TransactionVerficationServiceFutureStub(
+  public static final class TransactionVerificationServiceFutureStub extends io.grpc.stub.AbstractFutureStub<TransactionVerificationServiceFutureStub> {
+    private TransactionVerificationServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected TransactionVerficationServiceFutureStub build(
+    protected TransactionVerificationServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new TransactionVerficationServiceFutureStub(channel, callOptions);
+      return new TransactionVerificationServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -327,10 +327,10 @@ public final class TransactionVerficationServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final TransactionVerficationServiceImplBase serviceImpl;
+    private final TransactionVerificationServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(TransactionVerficationServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(TransactionVerificationServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -367,9 +367,9 @@ public final class TransactionVerficationServiceGrpc {
     }
   }
 
-  private static abstract class TransactionVerficationServiceBaseDescriptorSupplier
+  private static abstract class TransactionVerificationServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    TransactionVerficationServiceBaseDescriptorSupplier() {}
+    TransactionVerificationServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -378,21 +378,21 @@ public final class TransactionVerficationServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("TransactionVerficationService");
+      return getFileDescriptor().findServiceByName("TransactionVerificationService");
     }
   }
 
-  private static final class TransactionVerficationServiceFileDescriptorSupplier
-      extends TransactionVerficationServiceBaseDescriptorSupplier {
-    TransactionVerficationServiceFileDescriptorSupplier() {}
+  private static final class TransactionVerificationServiceFileDescriptorSupplier
+      extends TransactionVerificationServiceBaseDescriptorSupplier {
+    TransactionVerificationServiceFileDescriptorSupplier() {}
   }
 
-  private static final class TransactionVerficationServiceMethodDescriptorSupplier
-      extends TransactionVerficationServiceBaseDescriptorSupplier
+  private static final class TransactionVerificationServiceMethodDescriptorSupplier
+      extends TransactionVerificationServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    TransactionVerficationServiceMethodDescriptorSupplier(String methodName) {
+    TransactionVerificationServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -407,11 +407,11 @@ public final class TransactionVerficationServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (TransactionVerficationServiceGrpc.class) {
+      synchronized (TransactionVerificationServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new TransactionVerficationServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new TransactionVerificationServiceFileDescriptorSupplier())
               .addMethod(getVerifyBooksMethod())
               .addMethod(getVerifyCreditCardMethod())
               .addMethod(getVerifyContactMethod())

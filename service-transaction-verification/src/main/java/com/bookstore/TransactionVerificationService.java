@@ -13,7 +13,7 @@ import net.devh.boot.grpc.server.service.GrpcService;
 @Slf4j
 @GrpcService
 @RequiredArgsConstructor
-public class TransactionVerificationService extends TransactionVerficationServiceGrpc.TransactionVerficationServiceImplBase {
+public class TransactionVerificationService extends TransactionVerificationServiceGrpc.TransactionVerificationServiceImplBase {
 
     @Override
     public void verifyBooks(TransactionBooksRequest request, StreamObserver<TransactionBooksResponse> responseObserver) {

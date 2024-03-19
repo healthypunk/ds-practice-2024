@@ -18,4 +18,43 @@ public interface TransactionContactRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getOrderIdBytes();
+
+  /**
+   * <code>string name = 2;</code>
+   * @return The name.
+   */
+  java.lang.String getName();
+  /**
+   * <code>string name = 2;</code>
+   * @return The bytes for name.
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
+
+  /**
+   * <code>string contact = 3;</code>
+   * @return The contact.
+   */
+  java.lang.String getContact();
+  /**
+   * <code>string contact = 3;</code>
+   * @return The bytes for contact.
+   */
+  com.google.protobuf.ByteString
+      getContactBytes();
+
+  /**
+   * <code>.com.dspractice.bookstore.commonproto.ContactAddress contactAddress = 4;</code>
+   * @return Whether the contactAddress field is set.
+   */
+  boolean hasContactAddress();
+  /**
+   * <code>.com.dspractice.bookstore.commonproto.ContactAddress contactAddress = 4;</code>
+   * @return The contactAddress.
+   */
+  com.dspractice.bookstore.commonproto.ContactAddress getContactAddress();
+  /**
+   * <code>.com.dspractice.bookstore.commonproto.ContactAddress contactAddress = 4;</code>
+   */
+  com.dspractice.bookstore.commonproto.ContactAddressOrBuilder getContactAddressOrBuilder();
 }

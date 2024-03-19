@@ -1,6 +1,7 @@
 package com.bookstore;
 
 import com.bookstore.validators.BookValidator;
+import com.bookstore.validators.ContactValidator;
 import com.bookstore.validators.CreditCardValidator;
 import com.dspractice.bookstore.commonproto.*;
 import io.grpc.Status;
@@ -16,7 +17,7 @@ public class TransactionVerificationService extends TransactionVerficationServic
 
     @Override
     public void verifyBooks(TransactionBooksRequest request, StreamObserver<TransactionBooksResponse> responseObserver) {
-        log.info("[Order ID: {}] {}", request.getOrderId(), "Request for verification");
+        log.info("[Order ID: {}] {}", request.getOrderId(), "Request for books verification");
         if (!BookValidator.validateRequest(request)) {
             responseObserver.onError(Status.INVALID_ARGUMENT.asException());
             return;
@@ -44,5 +45,19 @@ public class TransactionVerificationService extends TransactionVerficationServic
         responseObserver.onNext(response);
         responseObserver.onCompleted();
         log.info("[Order ID: {}] {}, {}", request.getOrderId(), "Card verification result: ", false);
+    }
+
+    @Override
+    public void verifyContact(TransactionContactRequest request, StreamObserver<TransactionContactResponse> responseObserver) {
+        log.info("[Order ID: {}] {}", request.getOrderId(), "Request for contact information verification");
+        if (!ContactValidator.validateRequest(request)) {
+            responseObserver.onError(Status.INVALID_ARGUMENT.asException());
+            return;
+        }
+        TransactionContactResponse response = TransactionContactResponse.newBuilder()
+                .setOrderId(request.getOrderId()).build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+        log.info("[Order ID: {}] {}, {}", request.getOrderId(), "Contact verification result: ", false);
     }
 }

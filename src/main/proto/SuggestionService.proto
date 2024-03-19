@@ -1,5 +1,6 @@
 syntax = "proto3";
 package com.dspractice.bookstore.commonproto;
+option java_multiple_files = true;
 
 message SuggestionRequest {
   string orderId = 1;
@@ -14,6 +15,5 @@ message SuggestionResponse {
 }
 
 service SuggestionService {
-  rpc suggest (SuggestionRequest) returns (SuggestionResponse);
+  rpc suggestBook (SuggestionRequest) returns (SuggestionResponse);
 }
-

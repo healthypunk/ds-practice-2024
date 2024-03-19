@@ -15,35 +15,66 @@ public final class FraudDetectionServiceGrpc {
   public static final String SERVICE_NAME = "com.dspractice.bookstore.commonproto.FraudDetectionService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest,
-      com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse> getDetectMethod;
+  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest,
+      com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse> getDetectCardFraudMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "detect",
-      requestType = com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest.class,
-      responseType = com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "detectCardFraud",
+      requestType = com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest.class,
+      responseType = com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest,
-      com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse> getDetectMethod() {
-    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest, com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse> getDetectMethod;
-    if ((getDetectMethod = FraudDetectionServiceGrpc.getDetectMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest,
+      com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse> getDetectCardFraudMethod() {
+    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest, com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse> getDetectCardFraudMethod;
+    if ((getDetectCardFraudMethod = FraudDetectionServiceGrpc.getDetectCardFraudMethod) == null) {
       synchronized (FraudDetectionServiceGrpc.class) {
-        if ((getDetectMethod = FraudDetectionServiceGrpc.getDetectMethod) == null) {
-          FraudDetectionServiceGrpc.getDetectMethod = getDetectMethod =
-              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest, com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse>newBuilder()
+        if ((getDetectCardFraudMethod = FraudDetectionServiceGrpc.getDetectCardFraudMethod) == null) {
+          FraudDetectionServiceGrpc.getDetectCardFraudMethod = getDetectCardFraudMethod =
+              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest, com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "detect"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "detectCardFraud"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest.getDefaultInstance()))
+                  com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new FraudDetectionServiceMethodDescriptorSupplier("detect"))
+                  com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FraudDetectionServiceMethodDescriptorSupplier("detectCardFraud"))
               .build();
         }
       }
     }
-    return getDetectMethod;
+    return getDetectCardFraudMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest,
+      com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse> getDetectUserDataFraudMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "detectUserDataFraud",
+      requestType = com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest.class,
+      responseType = com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest,
+      com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse> getDetectUserDataFraudMethod() {
+    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest, com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse> getDetectUserDataFraudMethod;
+    if ((getDetectUserDataFraudMethod = FraudDetectionServiceGrpc.getDetectUserDataFraudMethod) == null) {
+      synchronized (FraudDetectionServiceGrpc.class) {
+        if ((getDetectUserDataFraudMethod = FraudDetectionServiceGrpc.getDetectUserDataFraudMethod) == null) {
+          FraudDetectionServiceGrpc.getDetectUserDataFraudMethod = getDetectUserDataFraudMethod =
+              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest, com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "detectUserDataFraud"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FraudDetectionServiceMethodDescriptorSupplier("detectUserDataFraud"))
+              .build();
+        }
+      }
+    }
+    return getDetectUserDataFraudMethod;
   }
 
   /**
@@ -96,20 +127,34 @@ public final class FraudDetectionServiceGrpc {
 
     /**
      */
-    public void detect(com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest request,
-        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDetectMethod(), responseObserver);
+    public void detectCardFraud(com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDetectCardFraudMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void detectUserDataFraud(com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDetectUserDataFraudMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getDetectMethod(),
+            getDetectCardFraudMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest,
-                com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse>(
-                  this, METHODID_DETECT)))
+                com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest,
+                com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse>(
+                  this, METHODID_DETECT_CARD_FRAUD)))
+          .addMethod(
+            getDetectUserDataFraudMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest,
+                com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse>(
+                  this, METHODID_DETECT_USER_DATA_FRAUD)))
           .build();
     }
   }
@@ -130,10 +175,18 @@ public final class FraudDetectionServiceGrpc {
 
     /**
      */
-    public void detect(com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest request,
-        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse> responseObserver) {
+    public void detectCardFraud(com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getDetectMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getDetectCardFraudMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void detectUserDataFraud(com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDetectUserDataFraudMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -153,9 +206,16 @@ public final class FraudDetectionServiceGrpc {
 
     /**
      */
-    public com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse detect(com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest request) {
+    public com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse detectCardFraud(com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getDetectMethod(), getCallOptions(), request);
+          getChannel(), getDetectCardFraudMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse detectUserDataFraud(com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDetectUserDataFraudMethod(), getCallOptions(), request);
     }
   }
 
@@ -175,14 +235,23 @@ public final class FraudDetectionServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse> detect(
-        com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse> detectCardFraud(
+        com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getDetectMethod(), getCallOptions()), request);
+          getChannel().newCall(getDetectCardFraudMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse> detectUserDataFraud(
+        com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDetectUserDataFraudMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_DETECT = 0;
+  private static final int METHODID_DETECT_CARD_FRAUD = 0;
+  private static final int METHODID_DETECT_USER_DATA_FRAUD = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -201,9 +270,13 @@ public final class FraudDetectionServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_DETECT:
-          serviceImpl.detect((com.dspractice.bookstore.commonproto.FraudService.FraudDetectionRequest) request,
-              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudDetectionResponse>) responseObserver);
+        case METHODID_DETECT_CARD_FRAUD:
+          serviceImpl.detectCardFraud((com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionRequest) request,
+              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudCreditCardDetectionResponse>) responseObserver);
+          break;
+        case METHODID_DETECT_USER_DATA_FRAUD:
+          serviceImpl.detectUserDataFraud((com.dspractice.bookstore.commonproto.FraudService.FraudUserDataRequest) request,
+              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.FraudService.FraudUserDataResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -266,7 +339,8 @@ public final class FraudDetectionServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new FraudDetectionServiceFileDescriptorSupplier())
-              .addMethod(getDetectMethod())
+              .addMethod(getDetectCardFraudMethod())
+              .addMethod(getDetectUserDataFraudMethod())
               .build();
         }
       }

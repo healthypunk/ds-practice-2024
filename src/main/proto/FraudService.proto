@@ -2,13 +2,13 @@ syntax = "proto3";
 package com.dspractice.bookstore.commonproto;
 
 
-message CreditCardInformation {
+message FraudCreditCard {
   string number = 1;
   string expirationDate = 2;
   string cvv = 3;
 }
 
-message BillingAddress {
+message FraudBillingAddress {
   string street = 1;
   string city = 2;
   string state = 3;
@@ -16,19 +16,29 @@ message BillingAddress {
   string country = 5;
 }
 
-message FraudDetectionRequest {
+message FraudCreditCardDetectionRequest {
   string orderId = 1;
-  CreditCardInformation card = 2;
-  BillingAddress address = 3;
+  FraudCreditCard card = 2;
+  FraudBillingAddress address = 3;
 }
 
-message FraudDetectionResponse {
+message FraudCreditCardDetectionResponse {
   string orderId = 1;
-  bool fraud = 2;
 }
+
+message FraudUserDataRequest {
+  string orderId = 1;
+}
+
+message FraudUserDataResponse {
+  string orderId = 1;
+}
+
+
 
 service FraudDetectionService {
-  rpc detect (FraudDetectionRequest) returns (FraudDetectionResponse);
+  rpc detectCardFraud (FraudCreditCardDetectionRequest) returns (FraudCreditCardDetectionResponse);
+  rpc detectUserDataFraud(FraudUserDataRequest) returns (FraudUserDataResponse);
 }
 
 

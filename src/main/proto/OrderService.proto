@@ -3,11 +3,46 @@ package com.dspractice.bookstore.commonproto;
 option java_multiple_files = true;
 
 message OrderEnqueueRequest {
+  string id = 1;
+  OrderUser user = 2;
+  OrderCreditCard credit_card = 3;
+  string user_comment = 4;
+  repeated OrderItem items = 5;
+  string discount_code = 6;
+  string shipping_method = 7;
+  string gift_message = 8;
+  OrderBillingAddress billing_address = 9;
+  bool gift_wrapping = 10;
+  repeated string notification_preferences = 12;
+}
 
+message OrderUser {
+  string name = 1;
+  string contact = 2;
+}
+
+message OrderCreditCard {
+  string number = 1;
+  string expiration_date = 2;
+  string cvv = 3;
+}
+
+message OrderItem {
+  string name = 1;
+  int32 quantity = 2;
+}
+
+message OrderBillingAddress {
+  string street = 1;
+  string city = 2;
+  string state = 3;
+  string zip = 4;
+  string country = 5;
 }
 
 message OrderEnqueueResponse {
-
+  string orderId = 1;
+  string status = 2;
 }
 
 service OrderQueueService{

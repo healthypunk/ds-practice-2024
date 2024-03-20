@@ -15,35 +15,35 @@ public final class SuggestionServiceGrpc {
   public static final String SERVICE_NAME = "com.dspractice.bookstore.commonproto.SuggestionService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest,
-      com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse> getSuggestMethod;
+  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.SuggestionRequest,
+      com.dspractice.bookstore.commonproto.SuggestionResponse> getSuggestBookMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "suggest",
-      requestType = com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest.class,
-      responseType = com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "suggestBook",
+      requestType = com.dspractice.bookstore.commonproto.SuggestionRequest.class,
+      responseType = com.dspractice.bookstore.commonproto.SuggestionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest,
-      com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse> getSuggestMethod() {
-    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest, com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse> getSuggestMethod;
-    if ((getSuggestMethod = SuggestionServiceGrpc.getSuggestMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.SuggestionRequest,
+      com.dspractice.bookstore.commonproto.SuggestionResponse> getSuggestBookMethod() {
+    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.SuggestionRequest, com.dspractice.bookstore.commonproto.SuggestionResponse> getSuggestBookMethod;
+    if ((getSuggestBookMethod = SuggestionServiceGrpc.getSuggestBookMethod) == null) {
       synchronized (SuggestionServiceGrpc.class) {
-        if ((getSuggestMethod = SuggestionServiceGrpc.getSuggestMethod) == null) {
-          SuggestionServiceGrpc.getSuggestMethod = getSuggestMethod =
-              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest, com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse>newBuilder()
+        if ((getSuggestBookMethod = SuggestionServiceGrpc.getSuggestBookMethod) == null) {
+          SuggestionServiceGrpc.getSuggestBookMethod = getSuggestBookMethod =
+              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.SuggestionRequest, com.dspractice.bookstore.commonproto.SuggestionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "suggest"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "suggestBook"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest.getDefaultInstance()))
+                  com.dspractice.bookstore.commonproto.SuggestionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new SuggestionServiceMethodDescriptorSupplier("suggest"))
+                  com.dspractice.bookstore.commonproto.SuggestionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new SuggestionServiceMethodDescriptorSupplier("suggestBook"))
               .build();
         }
       }
     }
-    return getSuggestMethod;
+    return getSuggestBookMethod;
   }
 
   /**
@@ -96,20 +96,20 @@ public final class SuggestionServiceGrpc {
 
     /**
      */
-    public void suggest(com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest request,
-        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSuggestMethod(), responseObserver);
+    public void suggestBook(com.dspractice.bookstore.commonproto.SuggestionRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.SuggestionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSuggestBookMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getSuggestMethod(),
+            getSuggestBookMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest,
-                com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse>(
-                  this, METHODID_SUGGEST)))
+                com.dspractice.bookstore.commonproto.SuggestionRequest,
+                com.dspractice.bookstore.commonproto.SuggestionResponse>(
+                  this, METHODID_SUGGEST_BOOK)))
           .build();
     }
   }
@@ -130,10 +130,10 @@ public final class SuggestionServiceGrpc {
 
     /**
      */
-    public void suggest(com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest request,
-        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse> responseObserver) {
+    public void suggestBook(com.dspractice.bookstore.commonproto.SuggestionRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.SuggestionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getSuggestMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSuggestBookMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -153,9 +153,9 @@ public final class SuggestionServiceGrpc {
 
     /**
      */
-    public com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse suggest(com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest request) {
+    public com.dspractice.bookstore.commonproto.SuggestionResponse suggestBook(com.dspractice.bookstore.commonproto.SuggestionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getSuggestMethod(), getCallOptions(), request);
+          getChannel(), getSuggestBookMethod(), getCallOptions(), request);
     }
   }
 
@@ -175,14 +175,14 @@ public final class SuggestionServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse> suggest(
-        com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.SuggestionResponse> suggestBook(
+        com.dspractice.bookstore.commonproto.SuggestionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getSuggestMethod(), getCallOptions()), request);
+          getChannel().newCall(getSuggestBookMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_SUGGEST = 0;
+  private static final int METHODID_SUGGEST_BOOK = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -201,9 +201,9 @@ public final class SuggestionServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SUGGEST:
-          serviceImpl.suggest((com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionRequest) request,
-              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass.SuggestionResponse>) responseObserver);
+        case METHODID_SUGGEST_BOOK:
+          serviceImpl.suggestBook((com.dspractice.bookstore.commonproto.SuggestionRequest) request,
+              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.SuggestionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -266,7 +266,7 @@ public final class SuggestionServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new SuggestionServiceFileDescriptorSupplier())
-              .addMethod(getSuggestMethod())
+              .addMethod(getSuggestBookMethod())
               .build();
         }
       }

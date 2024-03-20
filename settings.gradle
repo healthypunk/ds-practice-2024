@@ -4,4 +4,5 @@ include 'client-side'
 include 'service-fraud-detection'
 include 'service-transaction-verification'
 include 'service-suggestion-service'
+include 'service-order-queue'
 

@@ -20,14 +20,8 @@ public interface ItemOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>string quantity = 2;</code>
+   * <code>int32 quantity = 2;</code>
    * @return The quantity.
    */
-  java.lang.String getQuantity();
-  /**
-   * <code>string quantity = 2;</code>
-   * @return The bytes for quantity.
-   */
-  com.google.protobuf.ByteString
-      getQuantityBytes();
+  int getQuantity();
 }

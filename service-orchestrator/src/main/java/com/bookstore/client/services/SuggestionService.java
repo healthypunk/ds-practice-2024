@@ -1,7 +1,8 @@
 package com.bookstore.client.services;
 
+import com.bookstore.client.models.OrderRequest;
+import com.dspractice.bookstore.commonproto.SuggestionRequest;
 import com.dspractice.bookstore.commonproto.SuggestionServiceGrpc;
-import com.dspractice.bookstore.commonproto.SuggestionServiceOuterClass;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,9 @@ public class SuggestionService {
     @GrpcClient("grpc-suggestion-service")
     private SuggestionServiceGrpc.SuggestionServiceBlockingStub suggestionServiceBlockingStub;
 
-    public String suggest(List<String> books) {
-        SuggestionServiceOuterClass.SuggestionRequest request = SuggestionServiceOuterClass.SuggestionRequest.newBuilder().build();
-        return suggestionServiceBlockingStub.suggest(request).getBookName();
+    public String suggestBooks(OrderRequest orderRequest) {
+        List<String> books = orderRequest.getItems().stream().map(OrderRequest.Item::getName).toList();
+        SuggestionRequest request = SuggestionRequest.newBuilder().setOrderId(orderRequest.getId()).addAllBooksNames(books).build();
+        return suggestionServiceBlockingStub.suggestBook(request).getBookName();
     }
 }

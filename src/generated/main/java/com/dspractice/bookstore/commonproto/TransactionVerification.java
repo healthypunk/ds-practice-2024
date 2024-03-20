@@ -79,7 +79,7 @@ public final class TransactionVerification {
       ".commonproto.CreditCard\"L\n\035TransactionCr" +
       "editCardResponse\022\017\n\007orderId\030\001 \001(\t\022\032\n\022ver" +
       "ificationStatus\030\002 \001(\t\"&\n\004Item\022\014\n\004name\030\001 " +
-      "\001(\t\022\020\n\010quantity\030\002 \001(\t\"e\n\027TransactionBook" +
+      "\001(\t\022\020\n\010quantity\030\002 \001(\005\"e\n\027TransactionBook" +
       "sRequest\022\017\n\007orderId\030\001 \001(\t\0229\n\005books\030\002 \003(\013" +
       "2*.com.dspractice.bookstore.commonproto." +
       "Item\"+\n\030TransactionBooksResponse\022\017\n\007orde" +

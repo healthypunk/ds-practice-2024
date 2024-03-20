@@ -28,7 +28,7 @@ message TransactionCreditCardResponse {
 
 message Item {
   string name = 1;
-  string quantity =2;
+  int32 quantity = 2;
 }
 
 message TransactionBooksRequest {

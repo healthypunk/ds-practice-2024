@@ -1,14 +1,21 @@
 package com.bookstore;
 
-import com.bookstore.validators.BookValidator;
 import com.bookstore.validators.ContactValidator;
 import com.bookstore.validators.CreditCardValidator;
-import com.dspractice.bookstore.commonproto.*;
+import com.dspractice.bookstore.commonproto.TransactionBooksRequest;
+import com.dspractice.bookstore.commonproto.TransactionBooksResponse;
+import com.dspractice.bookstore.commonproto.TransactionContactRequest;
+import com.dspractice.bookstore.commonproto.TransactionContactResponse;
+import com.dspractice.bookstore.commonproto.TransactionCreditCardRequest;
+import com.dspractice.bookstore.commonproto.TransactionCreditCardResponse;
+import com.dspractice.bookstore.commonproto.TransactionVerificationServiceGrpc;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
+
+import static com.bookstore.validators.BookValidator.validateRequest;
 
 @Slf4j
 @GrpcService
@@ -18,7 +25,7 @@ public class TransactionVerificationService extends TransactionVerificationServi
     @Override
     public void verifyBooks(TransactionBooksRequest request, StreamObserver<TransactionBooksResponse> responseObserver) {
         log.info("[Order ID: {}] {}", request.getOrderId(), "Request for books verification");
-        if (!BookValidator.validateRequest(request)) {
+        if (!validateRequest(request)) {
             responseObserver.onError(Status.INVALID_ARGUMENT.asException());
             return;
         }

@@ -16,18 +16,11 @@ public class FraudDetectionService {
     @GrpcClient("grpc-fraud-detection")
     private FraudDetectionServiceGrpc.FraudDetectionServiceBlockingStub fraudDetectionServiceBlockingStub;
 
-    /***
-     * Method detects fraud from given user data
-     *
-     * @param orderRequest
-     * @return positive if initial data is missing, otherwise it gives an error
-     */
-
-    public boolean detectUserDataFraud(OrderRequest orderRequest) {
+    public void detectUserDataFraud(OrderRequest orderRequest) {
         OrderRequest.Browser browser = orderRequest.getBrowser();
         OrderRequest.Device device = orderRequest.getDevice();
         if (Objects.isNull(browser) || Objects.isNull(device)) {
-            return true;
+            throw new IllegalArgumentException("Check browser or device information");
         }
         FraudUserDataRequest request = FraudUserDataRequest.newBuilder()
                 .setOrderId(orderRequest.getId())
@@ -37,14 +30,14 @@ public class FraudDetectionService {
                 .setDeviceType(device.getType())
                 .setDeviceOs(device.getOs())
                 .build();
-        return orderRequest.getId().equals(fraudDetectionServiceBlockingStub.detectUserDataFraud(request).getOrderId());
+        fraudDetectionServiceBlockingStub.detectUserDataFraud(request).getOrderId();
     }
 
-    public boolean detectCreditCardFraud(OrderRequest orderRequest) {
+    public void detectCreditCardFraud(OrderRequest orderRequest) {
         OrderRequest.CreditCard card = orderRequest.getCreditCard();
         OrderRequest.BillingAddress address = orderRequest.getBillingAddress();
         if (Objects.isNull(card) || Objects.isNull(address)) {
-            return false;
+            throw new IllegalArgumentException("Check browser or device information");
         }
 
         FraudCreditCard fraudCreditCard = FraudCreditCard.newBuilder()
@@ -66,6 +59,6 @@ public class FraudDetectionService {
                 .setCard(fraudCreditCard)
                 .setAddress(fraudBillingAddress).build();
 
-        return orderRequest.getId().equals(fraudDetectionServiceBlockingStub.detectCardFraud(request).getOrderId());
+        fraudDetectionServiceBlockingStub.detectCardFraud(request).getOrderId();
     }
 }

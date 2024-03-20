@@ -19,9 +19,9 @@ public class TransactionVerificationService {
     @GrpcClient("grpc-transaction-verification")
     private TransactionVerificationServiceGrpc.TransactionVerificationServiceBlockingStub transactionVerificationServiceStub;
 
-    public boolean verifyBooks(OrderRequest request) {
+    public void verifyBooks(OrderRequest request) {
         if (request.getItems().isEmpty()) {
-            return false;
+            throw new IllegalArgumentException("Check items");
         }
         List<Item> items = request.getItems().stream().map(i -> Item.newBuilder().setName(i.getName()).setQuantity(i.getQuantity()).build()).toList();
 
@@ -29,13 +29,13 @@ public class TransactionVerificationService {
                 .setOrderId(request.getId())
                 .addAllBooks(items)
                 .build();
-        return request.getId().equals(transactionVerificationServiceStub.verifyBooks(transactionBooksRequest).getOrderId());
+        transactionVerificationServiceStub.verifyBooks(transactionBooksRequest).getOrderId();
     }
 
-    public boolean verifyCreditCard(OrderRequest request) {
+    public void verifyCreditCard(OrderRequest request) {
         OrderRequest.CreditCard card = request.getCreditCard();
         if (Objects.isNull(card)) {
-            return false;
+            throw new IllegalArgumentException("Credit card information");
         }
 
         CreditCard creditCard = CreditCard.newBuilder()
@@ -49,14 +49,14 @@ public class TransactionVerificationService {
                 .setCard(creditCard)
                 .build();
 
-        return request.getId().equals(transactionVerificationServiceStub.verifyCreditCard(transactionCreditCardRequest).getOrderId());
+        transactionVerificationServiceStub.verifyCreditCard(transactionCreditCardRequest).getOrderId();
     }
 
-    public boolean verifyContact(OrderRequest request) {
+    public void verifyContact(OrderRequest request) {
         OrderRequest.User user = request.getUser();
         OrderRequest.BillingAddress address = request.getBillingAddress();
         if (Objects.isNull(user) || Objects.isNull(address)) {
-            return false;
+            throw new IllegalArgumentException("Check user or billing address information");
         }
 
         ContactAddress contactAddress = ContactAddress.newBuilder()
@@ -73,8 +73,7 @@ public class TransactionVerificationService {
                 .setContact(user.getContact())
                 .setContactAddress(contactAddress)
                 .build();
-        return request.getId().equals(transactionVerificationServiceStub.verifyContact(transactionContactRequest).getOrderId());
+        transactionVerificationServiceStub.verifyContact(transactionContactRequest).getOrderId();
     }
-
 
 }

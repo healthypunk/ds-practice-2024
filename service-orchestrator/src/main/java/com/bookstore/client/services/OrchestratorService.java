@@ -11,6 +11,7 @@ public class OrchestratorService {
     private final FraudDetectionService fraudDetectionService;
     private final SuggestionService suggestionService;
     private final TransactionVerificationService transactionVerificationService;
+    private final OrderQueueService orderQueueService;
 
     public OrderResponse process(OrderRequest orderRequest) {
         try {

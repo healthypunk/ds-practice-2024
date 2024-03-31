@@ -2,6 +2,7 @@ FROM openjdk:17-jdk-alpine
 
 VOLUME /tmp
 
+EXPOSE 50054
 
 ARG JAR_FILE
 

@@ -3,8 +3,13 @@ package com.bookstore.client.services;
 import com.bookstore.client.models.OrderRequest;
 import com.bookstore.client.models.OrderResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrchestratorService {
@@ -15,19 +20,18 @@ public class OrchestratorService {
 
     public OrderResponse process(OrderRequest orderRequest) {
         try {
-            // TODO add updated verifications
-//            fraudDetectionService.detectCreditCardFraud(orderRequest);
+            orderRequest.setId(UUID.randomUUID().toString());
+            transactionVerificationService.verifyBooks(orderRequest);
+            transactionVerificationService.verifyCreditCard(orderRequest);
+            fraudDetectionService.detectUserDataFraud(orderRequest);
+            transactionVerificationService.verifyCreditCard(orderRequest);
+            fraudDetectionService.detectCreditCardFraud(orderRequest);
+            OrderResponse.SuggestedBook suggestedBook = suggestionService.suggestBook(orderRequest);
+            return new OrderResponse().setOrderId(orderRequest.getId()).setOrderStatus("SUCCESS").setSuggestedBooks(List.of(suggestedBook));
         } catch (Exception e) {
-
+            log.error(String.valueOf(e));
+            return new OrderResponse().setOrderId(orderRequest.getId()).setOrderStatus("FAILURE");
         }
-        return null;
-//        boolean isFraud = fraudDetectionService.d(orderRequest);
-//        String transactionId = transactionVerificationService.suggest(orderRequest);
-//        String suggestedBook = suggestionService.suggest(List.of("books"));
-//        return new OrderResponse()
-//                .setOrderId(transactionId)
-//                .setOrderStatus("DONE")
-//                .setSuggestedBooks(List.of(new OrderResponse.SuggestedBook().setTitle(suggestedBook)));
     }
 }
 

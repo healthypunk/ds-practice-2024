@@ -2,3 +2,6 @@ grpc:
   server:
     port: 50052
 
+
+vectorclock:
+  nodeId: transaction-verification

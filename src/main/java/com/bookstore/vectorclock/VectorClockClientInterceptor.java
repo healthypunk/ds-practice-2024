@@ -26,16 +26,15 @@ public class VectorClockClientInterceptor implements ClientInterceptor {
             public void start(Listener<RespT> responseListener, Metadata headers) {
                 // Attach the local vector clock to the call
                 Map<String, Long> localVectorClock = vectorClockService.getVectorClock();
-                headers.put(Metadata.Key.of("vc", Metadata.ASCII_STRING_MARSHALLER), Objects.requireNonNull(VectorClockUtils.serializeVectorClock(localVectorClock)));
+                headers.put(VectorClockUtils.VECTOR_CLOCK_METADATA_KEY, Objects.requireNonNull(VectorClockUtils.serializeVectorClock(localVectorClock)));
 
                 super.start(new ForwardingClientCallListener.SimpleForwardingClientCallListener<RespT>(responseListener) {
                     @Override
                     public void onHeaders(Metadata headers) {
                         // Update the local vector clock based on the server's response
                         Map<String, Long> serverVectorClock = VectorClockUtils.extractVectorClockFromMetadata(headers);
+                        log.info("[Vector clock] {}", serverVectorClock);
                         vectorClockService.updateOnlyVectorClock(serverVectorClock);
-                        log.info("[Vector clock] {}", vectorClockService.getVectorClock().toString());
-
                         super.onHeaders(headers);
                     }
                 }, headers);

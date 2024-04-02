@@ -21,6 +21,7 @@ public class OrchestratorService {
     public OrderResponse process(OrderRequest orderRequest) {
         try {
             orderRequest.setId(UUID.randomUUID().toString());
+            log.info("[Order ID: {}]", orderRequest.getId());
             transactionVerificationService.verifyBooks(orderRequest);
             transactionVerificationService.verifyCreditCard(orderRequest);
             fraudDetectionService.detectUserDataFraud(orderRequest);

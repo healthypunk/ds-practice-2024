@@ -1,5 +1,6 @@
 package com.bookstore.vectorclock;
 
+import io.grpc.ForwardingServerCall;
 import io.grpc.Metadata;
 import io.grpc.ServerCall;
 import io.grpc.ServerCallHandler;
@@ -18,21 +19,20 @@ public class VectorClockServerInterceptor implements ServerInterceptor {
 
     @Override
     public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> call, Metadata headers, ServerCallHandler<ReqT, RespT> next) {
-        // Extract the vector clock from the metadata, if present
-        // For simplicity, assume we have a method that can parse and deserialize
-        // the vector clock from the headers
+
         Map<String, Long> clientVectorClock = VectorClockUtils.extractVectorClockFromMetadata(headers);
-
-        // Update the vector clock based on this server's logic
-        // For example, increment the timestamp for this server's ID
-
         vectorClockService.updateVectorClock(clientVectorClock);
-        log.info("[Vector clock] {}", vectorClockService.getVectorClock().toString());
 
-        // Modify the response headers or context to include the updated vector clock
-        // This might involve serializing the vector clock and adding it to the metadata
-        headers.put(VectorClockUtils.VECTOR_CLOCK_METADATA_KEY, Objects.requireNonNull(VectorClockUtils.serializeVectorClock(vectorClockService.getVectorClock())));
+        ServerCall<ReqT, RespT> serverCall = new ForwardingServerCall.SimpleForwardingServerCall<>(call) {
+            @Override
+            public void sendHeaders(Metadata responseHeaders) {
+                // Serialize the updated vector clock and add it to the response metadata
+                log.info("[Vector clock] {}", vectorClockService.getVectorClock().toString());
+                responseHeaders.put(VectorClockUtils.VECTOR_CLOCK_METADATA_KEY, Objects.requireNonNull(VectorClockUtils.serializeVectorClock(vectorClockService.getVectorClock())));
+                super.sendHeaders(responseHeaders);
+            }
+        };
 
-        return next.startCall(call, headers);
+        return next.startCall(serverCall, headers);
     }
 }

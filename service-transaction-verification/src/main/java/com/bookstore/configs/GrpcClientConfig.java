@@ -18,7 +18,7 @@ public class GrpcClientConfig {
 
     @Bean
     @GrpcGlobalServerInterceptor
-    public ServerInterceptor vectorClockClientInterceptor() {
+    public ServerInterceptor vectorClockServerInterceptor() {
         return new VectorClockServerInterceptor(vectorClockService);
     }
 }

@@ -13,7 +13,10 @@ public class PriorityQueueService {
 
     public PriorityQueueService() {
         // Comparator to sort the orders based on their ID in alphabetical order
-        Comparator<OrderEnqueueRequest> orderComparator = Comparator.comparing(OrderEnqueueRequest::getId);
+        Comparator<OrderEnqueueRequest> orderComparator = Comparator.comparing(OrderEnqueueRequest::getId)
+                .thenComparing(OrderEnqueueRequest::getItemsCount)
+                .thenComparing(OrderEnqueueRequest::getGiftMessage)
+                .thenComparing(OrderEnqueueRequest::getDiscountCode);
         this.orderQueue = new PriorityBlockingQueue<>(100, orderComparator);
     }
 

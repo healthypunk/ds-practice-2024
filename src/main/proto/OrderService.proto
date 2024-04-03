@@ -45,7 +45,10 @@ message OrderEnqueueResponse {
   string status = 2;
 }
 
+message OrderDequeueRequest {
+}
+
 service OrderQueueService{
   rpc enqueueOrder (OrderEnqueueRequest) returns (OrderEnqueueResponse);
-//  rpc dequeOrder () returns ()
+  rpc listenDequeuedOrders(OrderDequeueRequest) returns (stream OrderEnqueueRequest);
 }

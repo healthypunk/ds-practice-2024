@@ -46,6 +46,37 @@ public final class OrderQueueServiceGrpc {
     return getEnqueueOrderMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.OrderDequeueRequest,
+      com.dspractice.bookstore.commonproto.OrderEnqueueRequest> getListenDequeuedOrdersMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "listenDequeuedOrders",
+      requestType = com.dspractice.bookstore.commonproto.OrderDequeueRequest.class,
+      responseType = com.dspractice.bookstore.commonproto.OrderEnqueueRequest.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.OrderDequeueRequest,
+      com.dspractice.bookstore.commonproto.OrderEnqueueRequest> getListenDequeuedOrdersMethod() {
+    io.grpc.MethodDescriptor<com.dspractice.bookstore.commonproto.OrderDequeueRequest, com.dspractice.bookstore.commonproto.OrderEnqueueRequest> getListenDequeuedOrdersMethod;
+    if ((getListenDequeuedOrdersMethod = OrderQueueServiceGrpc.getListenDequeuedOrdersMethod) == null) {
+      synchronized (OrderQueueServiceGrpc.class) {
+        if ((getListenDequeuedOrdersMethod = OrderQueueServiceGrpc.getListenDequeuedOrdersMethod) == null) {
+          OrderQueueServiceGrpc.getListenDequeuedOrdersMethod = getListenDequeuedOrdersMethod =
+              io.grpc.MethodDescriptor.<com.dspractice.bookstore.commonproto.OrderDequeueRequest, com.dspractice.bookstore.commonproto.OrderEnqueueRequest>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "listenDequeuedOrders"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.dspractice.bookstore.commonproto.OrderDequeueRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.dspractice.bookstore.commonproto.OrderEnqueueRequest.getDefaultInstance()))
+              .setSchemaDescriptor(new OrderQueueServiceMethodDescriptorSupplier("listenDequeuedOrders"))
+              .build();
+        }
+      }
+    }
+    return getListenDequeuedOrdersMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -95,13 +126,17 @@ public final class OrderQueueServiceGrpc {
   public static abstract class OrderQueueServiceImplBase implements io.grpc.BindableService {
 
     /**
-     * <pre>
-     *  rpc dequeOrder () returns ()
-     * </pre>
      */
     public void enqueueOrder(com.dspractice.bookstore.commonproto.OrderEnqueueRequest request,
         io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.OrderEnqueueResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEnqueueOrderMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listenDequeuedOrders(com.dspractice.bookstore.commonproto.OrderDequeueRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.OrderEnqueueRequest> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListenDequeuedOrdersMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -113,6 +148,13 @@ public final class OrderQueueServiceGrpc {
                 com.dspractice.bookstore.commonproto.OrderEnqueueRequest,
                 com.dspractice.bookstore.commonproto.OrderEnqueueResponse>(
                   this, METHODID_ENQUEUE_ORDER)))
+          .addMethod(
+            getListenDequeuedOrdersMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                com.dspractice.bookstore.commonproto.OrderDequeueRequest,
+                com.dspractice.bookstore.commonproto.OrderEnqueueRequest>(
+                  this, METHODID_LISTEN_DEQUEUED_ORDERS)))
           .build();
     }
   }
@@ -132,14 +174,19 @@ public final class OrderQueueServiceGrpc {
     }
 
     /**
-     * <pre>
-     *  rpc dequeOrder () returns ()
-     * </pre>
      */
     public void enqueueOrder(com.dspractice.bookstore.commonproto.OrderEnqueueRequest request,
         io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.OrderEnqueueResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getEnqueueOrderMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listenDequeuedOrders(com.dspractice.bookstore.commonproto.OrderDequeueRequest request,
+        io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.OrderEnqueueRequest> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getListenDequeuedOrdersMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -158,13 +205,18 @@ public final class OrderQueueServiceGrpc {
     }
 
     /**
-     * <pre>
-     *  rpc dequeOrder () returns ()
-     * </pre>
      */
     public com.dspractice.bookstore.commonproto.OrderEnqueueResponse enqueueOrder(com.dspractice.bookstore.commonproto.OrderEnqueueRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getEnqueueOrderMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.dspractice.bookstore.commonproto.OrderEnqueueRequest> listenDequeuedOrders(
+        com.dspractice.bookstore.commonproto.OrderDequeueRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getListenDequeuedOrdersMethod(), getCallOptions(), request);
     }
   }
 
@@ -183,9 +235,6 @@ public final class OrderQueueServiceGrpc {
     }
 
     /**
-     * <pre>
-     *  rpc dequeOrder () returns ()
-     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.dspractice.bookstore.commonproto.OrderEnqueueResponse> enqueueOrder(
         com.dspractice.bookstore.commonproto.OrderEnqueueRequest request) {
@@ -195,6 +244,7 @@ public final class OrderQueueServiceGrpc {
   }
 
   private static final int METHODID_ENQUEUE_ORDER = 0;
+  private static final int METHODID_LISTEN_DEQUEUED_ORDERS = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -216,6 +266,10 @@ public final class OrderQueueServiceGrpc {
         case METHODID_ENQUEUE_ORDER:
           serviceImpl.enqueueOrder((com.dspractice.bookstore.commonproto.OrderEnqueueRequest) request,
               (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.OrderEnqueueResponse>) responseObserver);
+          break;
+        case METHODID_LISTEN_DEQUEUED_ORDERS:
+          serviceImpl.listenDequeuedOrders((com.dspractice.bookstore.commonproto.OrderDequeueRequest) request,
+              (io.grpc.stub.StreamObserver<com.dspractice.bookstore.commonproto.OrderEnqueueRequest>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -279,6 +333,7 @@ public final class OrderQueueServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new OrderQueueServiceFileDescriptorSupplier())
               .addMethod(getEnqueueOrderMethod())
+              .addMethod(getListenDequeuedOrdersMethod())
               .build();
         }
       }

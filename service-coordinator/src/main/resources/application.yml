@@ -1,0 +1,16 @@
+grpc:
+  client:
+    grpc-order-queue:
+      address: 'static://127.0.0.1:50054'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
+  server:
+    port: 50055
+
+
+
+vectorclock:
+  nodeId: coordinator
+
+

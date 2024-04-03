@@ -44,6 +44,11 @@ public final class OrderService {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dspractice_bookstore_commonproto_OrderEnqueueResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dspractice_bookstore_commonproto_OrderDequeueRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dspractice_bookstore_commonproto_OrderDequeueRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -74,11 +79,15 @@ public final class OrderService {
       "treet\030\001 \001(\t\022\014\n\004city\030\002 \001(\t\022\r\n\005state\030\003 \001(\t" +
       "\022\013\n\003zip\030\004 \001(\t\022\017\n\007country\030\005 \001(\t\"7\n\024OrderE" +
       "nqueueResponse\022\017\n\007orderId\030\001 \001(\t\022\016\n\006statu" +
-      "s\030\002 \001(\t2\233\001\n\021OrderQueueService\022\205\001\n\014enqueu" +
-      "eOrder\0229.com.dspractice.bookstore.common" +
-      "proto.OrderEnqueueRequest\032:.com.dspracti" +
-      "ce.bookstore.commonproto.OrderEnqueueRes" +
-      "ponseB\002P\001b\006proto3"
+      "s\030\002 \001(\t\"\025\n\023OrderDequeueRequest2\254\002\n\021Order" +
+      "QueueService\022\205\001\n\014enqueueOrder\0229.com.dspr" +
+      "actice.bookstore.commonproto.OrderEnqueu" +
+      "eRequest\032:.com.dspractice.bookstore.comm" +
+      "onproto.OrderEnqueueResponse\022\216\001\n\024listenD" +
+      "equeuedOrders\0229.com.dspractice.bookstore" +
+      ".commonproto.OrderDequeueRequest\0329.com.d" +
+      "spractice.bookstore.commonproto.OrderEnq" +
+      "ueueRequest0\001B\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -120,6 +129,12 @@ public final class OrderService {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dspractice_bookstore_commonproto_OrderEnqueueResponse_descriptor,
         new java.lang.String[] { "OrderId", "Status", });
+    internal_static_com_dspractice_bookstore_commonproto_OrderDequeueRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_dspractice_bookstore_commonproto_OrderDequeueRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dspractice_bookstore_commonproto_OrderDequeueRequest_descriptor,
+        new java.lang.String[] { });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

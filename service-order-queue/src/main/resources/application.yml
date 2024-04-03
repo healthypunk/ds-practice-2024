@@ -1,3 +1,6 @@
 grpc:
   server:
     port: 50054
+
+vectorclock:
+  nodeId: order-queue

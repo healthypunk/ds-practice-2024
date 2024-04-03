@@ -1,42 +1,32 @@
 package com.bookstore;
 
-import java.util.Comparator;
-import java.util.concurrent.PriorityBlockingQueue;
-
 import com.dspractice.bookstore.commonproto.OrderEnqueueRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.LinkedBlockingQueue;
 
 @Service
 public class PriorityQueueService {
 
-    private final PriorityBlockingQueue<OrderEnqueueRequest> orderQueue;
+    private final LinkedBlockingQueue<OrderEnqueueRequest> queue = new LinkedBlockingQueue<>();
 
-    public PriorityQueueService() {
-        // Comparator to sort the orders based on their ID in alphabetical order
-        Comparator<OrderEnqueueRequest> orderComparator = Comparator.comparing(OrderEnqueueRequest::getId)
-                .thenComparing(OrderEnqueueRequest::getItemsCount)
-                .thenComparing(OrderEnqueueRequest::getGiftMessage)
-                .thenComparing(OrderEnqueueRequest::getDiscountCode);
-        this.orderQueue = new PriorityBlockingQueue<>(100, orderComparator);
+    public CompletableFuture<OrderEnqueueRequest> listenForNewOrders() {
+        // This method returns a CompletableFuture that completes when a new order is available.
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                // Wait for a new order to become available. This blocks the thread until an order is present.
+                return queue.take();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new IllegalStateException("Interrupted while waiting for a new order", e);
+            }
+        });
     }
 
-    public void enqueueOrder(OrderEnqueueRequest order) {
-        // Add the order to the priority queue
-        orderQueue.offer(order);
+    public void enqueueOrder(OrderEnqueueRequest request) {
+        // Add a new order to the queue. This operation is thread-safe.
+        queue.offer(request);
     }
 
-//    public void processQueue() {
-//        // Process the queue here. This could be periodically or based on some trigger
-//        while (!orderQueue.isEmpty()) {
-//            OrderEnqueueRequest processedOrder = orderQueue.poll(); // Retrieves and removes the head of this queue
-//            // Implement order processing logic here
-//            // For example, logging the processed order:
-//            System.out.println("[Order ID: " + processedOrder.getId() + "] Order is being processed");
-//        }
-//    }
-
-    // Optional: method to check the queue size or state for testing or monitoring
-    public int getQueueSize() {
-        return orderQueue.size();
-    }
 }

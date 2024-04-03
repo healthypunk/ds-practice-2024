@@ -28,8 +28,8 @@ public class OrchestratorService {
             transactionVerificationService.verifyCreditCard(orderRequest);
             fraudDetectionService.detectCreditCardFraud(orderRequest);
             OrderResponse.SuggestedBook suggestedBook = suggestionService.suggestBook(orderRequest);
-            orderQueueService.enqueueOrder(orderRequest);
-            return new OrderResponse().setOrderId(orderRequest.getId()).setOrderStatus("SUCCESS").setSuggestedBooks(List.of(suggestedBook));
+            String status = orderQueueService.enqueueOrder(orderRequest);
+            return new OrderResponse().setOrderId(orderRequest.getId()).setOrderStatus(status).setSuggestedBooks(List.of(suggestedBook));
         } catch (Exception e) {
             log.error(String.valueOf(e));
             return new OrderResponse().setOrderId(orderRequest.getId()).setOrderStatus("FAILURE");

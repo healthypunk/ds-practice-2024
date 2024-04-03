@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrderQueueService {
-    @GrpcClient("grpc-transaction-verification")
+    @GrpcClient("grpc-order-queue")
     private OrderQueueServiceGrpc.OrderQueueServiceBlockingStub orderQueueServiceBlockingStub;
 
-    public void enqueueOrder(OrderRequest orderRequest) {
+    public String enqueueOrder(OrderRequest orderRequest) {
         OrderEnqueueRequest enqueueRequest = OrderEnqueueRequest.newBuilder()
                 .setId(orderRequest.getId())
                 .setUser(OrderUser.newBuilder()
@@ -34,6 +34,6 @@ public class OrderQueueService {
                 .addAllNotificationPreferences(orderRequest.getNotificationPreferences())
                 .build();
 
-        orderQueueServiceBlockingStub.enqueueOrder(enqueueRequest);
+        return orderQueueServiceBlockingStub.enqueueOrder(enqueueRequest).getStatus();
     }
 }

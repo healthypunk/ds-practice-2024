@@ -25,6 +25,11 @@ grpc:
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
+    grpc-order-queue:
+      address: 'static://127.0.0.1:50054'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
 
 
 vectorclock:

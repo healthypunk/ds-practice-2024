@@ -36,4 +36,8 @@ And then run each service individually.
 ### Diagrams
 
 ![alt text](sequence-diagram.jpeg "Sequence diagram")
-![alt text](system-diagram.jpeg "System diagram")
+![alt text](system-diagram.png "System diagram")
+![alt text](vector-clock.png "Vector diagram")
+![alt text](leader-election-diagram-1.png "Leader election diagram 1")
+![alt text](leader-election-diagram-2.png "Leader election diagram 2")
+![alt text](leader-election-diagram-3.png "Leader election diagram 3")

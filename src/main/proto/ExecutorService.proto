@@ -1,0 +1,23 @@
+syntax = "proto3";
+package com.dspractice.bookstore.commonproto;
+option java_multiple_files = true;
+
+message ExecutorServiceStatusRequest {
+}
+
+message ExecutorServiceStatusResponse {
+  bool active = 1;
+}
+
+message ExecutorServiceExecutionRequest {
+  string orderId = 1;
+}
+
+message ExecutorServiceExecutionResponse {
+  string status = 1;
+}
+
+service ExecutorService {
+  rpc isActive (ExecutorServiceStatusRequest) returns (ExecutorServiceStatusResponse);
+  rpc execute (ExecutorServiceExecutionRequest) returns (ExecutorServiceExecutionResponse);
+}

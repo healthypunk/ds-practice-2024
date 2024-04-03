@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'com.palantir.docker' version '0.36.0'
+}
+
+group = 'com.bookstore'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+docker{
+    name "executor-service"
+    dockerfile file('/Dockerfile')
+    copySpec.from(jar).rename(".*","executor-service.jar")
+    buildArgs(['JAR_FILE': "executor-service.jar"])
+}
+dependencies {
+    implementation project(path: ':')
+    implementation 'net.devh:grpc-server-spring-boot-starter:3.0.0.RELEASE'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,6 @@
+grpc:
+  server:
+    port: 50060
+
+vectorclock:
+  nodeId: executor

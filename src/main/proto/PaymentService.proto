@@ -1,0 +1,26 @@
+syntax = "proto3";
+package com.dspractice.bookstore.commonproto;
+option java_multiple_files = true;
+
+message PaymentServiceResponse{
+  string paymentId = 1;
+  string status = 2;
+}
+
+message PaymentServiceInitRequest{
+  string orderId = 1;
+}
+
+message PaymentServiceCommitRequest{
+  string paymentId = 1;
+}
+
+message PaymentServiceRollbackRequest{
+  string paymentId = 1;
+}
+
+service PaymentService{
+  rpc init(PaymentServiceInitRequest) returns (PaymentServiceResponse);
+  rpc commit(PaymentServiceCommitRequest) returns (PaymentServiceResponse);
+  rpc rollback(PaymentServiceRollbackRequest) returns (PaymentServiceResponse);
+}

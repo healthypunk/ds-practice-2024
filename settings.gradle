@@ -7,4 +7,6 @@ include 'service-suggestion-service'
 include 'service-order-queue'
 include 'service-coordinator'
 include 'service-executor'
+include 'service-payment'
+include 'service-payment'
 

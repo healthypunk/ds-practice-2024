@@ -18,6 +18,7 @@ public class PaymentService extends PaymentServiceGrpc.PaymentServiceImplBase {
     private final PaymentCommitService paymentCommitService;
     @Override
     public void init(PaymentServiceInitRequest request, StreamObserver<PaymentServiceResponse> responseObserver) {
+        log.info("[Order ID: {}] has been received", request.getOrderId());
         Payment payment = new Payment();
         payment.setPaymentId(UUID.randomUUID().toString());
         payment.setPaymentStatus(PaymentStatus.PENDING);
@@ -26,10 +27,12 @@ public class PaymentService extends PaymentServiceGrpc.PaymentServiceImplBase {
         PaymentServiceResponse response = PaymentServiceResponse.newBuilder().setPaymentId(payment.getPaymentId()).setStatus(payment.getPaymentStatus().toString()).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
+        log.info("[Payment ID: {}] is pre-commited", payment.getPaymentId());
     }
 
     @Override
     public void commit(PaymentServiceCommitRequest request, StreamObserver<PaymentServiceResponse> responseObserver) {
+        log.info("[Payment ID: {}] has been received", request.getPaymentId());
         Payment payment = paymentCommitService.getItem(request.getPaymentId());
         if (payment == null){
             responseObserver.onError(Status.INVALID_ARGUMENT.asException());
@@ -44,11 +47,12 @@ public class PaymentService extends PaymentServiceGrpc.PaymentServiceImplBase {
         PaymentServiceResponse response = PaymentServiceResponse.newBuilder().setPaymentId(payment.getPaymentId()).setStatus(payment.getPaymentStatus().toString()).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
-
+        log.info("[Payment ID: {}] was commited", payment.getPaymentId());
     }
 
     @Override
     public void rollback(PaymentServiceRollbackRequest request, StreamObserver<PaymentServiceResponse> responseObserver) {
+        log.info("[Payment ID: {}] is received", request.getPaymentId());
         Payment payment = paymentCommitService.getItem(request.getPaymentId());
         if (payment == null){
             responseObserver.onError(Status.INVALID_ARGUMENT.asException());
@@ -63,6 +67,6 @@ public class PaymentService extends PaymentServiceGrpc.PaymentServiceImplBase {
         PaymentServiceResponse response = PaymentServiceResponse.newBuilder().setPaymentId(payment.getPaymentId()).setStatus(payment.getPaymentStatus().toString()).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
-
+        log.info("[Payment ID: {}] was rolled back", payment.getPaymentId());
     }
 }

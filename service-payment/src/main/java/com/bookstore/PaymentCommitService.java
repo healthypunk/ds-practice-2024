@@ -8,17 +8,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class PaymentCommitService {
-    private final Map<String,PaymentStatus> storage = new ConcurrentHashMap<>();
+    private final Map<String,Payment> storage = new ConcurrentHashMap<>();
 
-    public void preCommit(String paymentId) {
-        storage.put(paymentId, PaymentStatus.PENDING);
+    public void update(String paymentId, Payment payment) {
+        storage.put(paymentId, payment);
     }
 
     public void delete(String paymentId) {
         storage.remove(paymentId);
     }
 
-    public PaymentStatus getItem(String paymentId) {
+    public Payment getItem(String paymentId) {
         return storage.get(paymentId);
     }
 }

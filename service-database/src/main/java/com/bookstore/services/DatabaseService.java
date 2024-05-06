@@ -1,6 +1,6 @@
 package com.bookstore.services;
 
-import com.bookstore.config.ReplicationApplicationRunner;
+import com.bookstore.runners.ReplicationApplicationRunner;
 import com.dspractice.bookstore.database.DatabaseServiceGrpc;
 import com.dspractice.bookstore.database.ReadRequest;
 import com.dspractice.bookstore.database.ReadResponse;

@@ -1,0 +1,7 @@
+grpc:
+  server:
+    port: 50100
+
+vectorclock:
+  nodeId: service-payment
+

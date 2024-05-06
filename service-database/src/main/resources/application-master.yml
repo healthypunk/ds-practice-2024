@@ -1,0 +1,17 @@
+grpc:
+  server:
+    port: 9090
+
+replication:
+  host: localhost
+  nodes:
+    - port: 50090
+    - port: 50091
+    - port: 50092
+    - port: 50093
+    - port: 50094
+    - port: 50095
+    - port: 50096
+    - port: 50097
+    - port: 50098
+    - port: 50090

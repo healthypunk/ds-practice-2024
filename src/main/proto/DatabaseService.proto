@@ -1,0 +1,67 @@
+syntax = "proto3";
+package com.dspractice.bookstore.database;
+option java_multiple_files = true;
+
+service DatabaseService {
+  rpc write(WriteRequest) returns (WriteResponse);
+  rpc read(ReadRequest) returns (ReadResponse);
+}
+
+service DatabaseReplication {
+  rpc sendSnapshot(SnapshotRequest) returns (SnapshotResponse);
+  rpc sendUpdate(UpdateRequest) returns (UpdateResponse);
+  rpc requestUpdates(UpdateSinceRequest) returns (UpdateSinceResponse);
+  rpc isMaster(QueryMasterRequest) returns (QueryMasterResponse);
+}
+
+message WriteRequest {
+  string key = 1;
+  string value = 2;
+}
+
+message WriteResponse {
+  bool success = 1;
+}
+
+message ReadRequest {
+  string key = 1;
+}
+
+message ReadResponse {
+  string value = 1;
+  bool success = 2;
+}
+
+message SnapshotRequest {}
+
+message SnapshotResponse {
+  repeated Entry entries = 1;
+}
+
+message Entry {
+  string key = 1;
+  string value = 2;
+}
+
+message UpdateRequest {
+  Entry entry = 1;
+}
+
+message UpdateResponse {
+  bool success = 1;
+}
+
+message UpdateSinceRequest {
+  string version = 1;
+}
+
+message UpdateSinceResponse {
+  repeated Entry updates = 1;
+}
+
+message QueryMasterRequest {}
+
+message QueryMasterResponse {
+  bool isMaster = 1;
+}
+

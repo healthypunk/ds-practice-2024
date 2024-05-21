@@ -1,6 +1,5 @@
 package com.bookstore;
 
-import com.dspractice.bookstore.commonproto.PaymentServiceGrpc;
 import com.dspractice.bookstore.database.DatabaseServiceGrpc;
 import com.dspractice.bookstore.database.WriteRequest;
 import com.dspractice.bookstore.database.WriteResponse;

@@ -33,7 +33,7 @@ frontend service:
 
 And then run each service individually.
 
-###E2E testing using Cypress
+### E2E testing using Cypress
 
 Navigate to `cypress-tests` folder
 

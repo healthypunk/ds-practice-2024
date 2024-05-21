@@ -3,7 +3,7 @@ grpc:
     port: 50090
 
 replication:
-  host: "localhost"
+  host: "static://127.0.0.1"
   nodes: "50091,50092"
 
 vectorclock:

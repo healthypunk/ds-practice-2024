@@ -1,11 +1,14 @@
-FROM openjdk:17-jdk-alpine
+# Use an official OpenJDK 17 runtime as a parent image
+FROM amazoncorretto:17.0.11-alpine3.19
 
-VOLUME /tmp
+# Set the working directory in the container
+WORKDIR /app
 
-EXPOSE 50054
+# Copy the application's JAR file to the container
+COPY ./build/libs/service-payment-1.0.jar service-payment-1.0.jar
 
-ARG JAR_FILE
+# Expose the port the application runs on
+EXPOSE 50100
 
-COPY $JAR_FILE payment-service.jar
-
-ENTRYPOINT ["java", "-jar", "/payment-service.jar"]
+# Define the command to run the application
+ENTRYPOINT ["java", "-jar", "service-payment-1.0.jar"]

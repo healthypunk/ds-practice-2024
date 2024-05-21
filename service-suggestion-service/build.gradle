@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'com.palantir.docker' version '0.36.0'
 }
 
 group = 'com.bookstore'
@@ -8,13 +7,6 @@ version = '1.0'
 
 repositories {
     mavenCentral()
-}
-
-docker{
-    name "suggestion-service-service"
-    dockerfile file('/Dockerfile')
-    copySpec.from(jar).rename(".*","suggestion-service-service.jar")
-    buildArgs(['JAR_FILE': "suggestion-service-service.jar"])
 }
 
 dependencies {

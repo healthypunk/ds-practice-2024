@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'com.palantir.docker' version '0.36.0'
 }
 
 group = 'com.bookstore'
@@ -8,13 +7,6 @@ version = '1.0'
 
 repositories {
     mavenCentral()
-}
-
-docker{
-    name "transaction-verification-service"
-    dockerfile file('/Dockerfile')
-    copySpec.from(jar).rename(".*","transaction-verification-service.jar")
-    buildArgs(['JAR_FILE': "transaction-verification-service.jar"])
 }
 
 dependencies {

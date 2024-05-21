@@ -29,10 +29,10 @@ public class ExecutionService extends ExecutorServiceGrpc.ExecutorServiceImplBas
             databaseService.save(request.getOrderId(), paymentId);
 
         } catch (Exception e) {
-            if (paymentId != null) {
+//            if (paymentId != null) {
                 paymentService.rollback(paymentId);
 
-            }
+//            }
         }
         responseObserver.onNext(ExecutorServiceExecutionResponse.newBuilder().build());
         responseObserver.onCompleted();

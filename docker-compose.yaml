@@ -16,66 +16,81 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - WDS_SOCKET_PORT=0
+    networks:
+      - book_system_network
   orchestrator:
     build:
-      # Use the current directory as the build context
-      # This allows us to access the files in the current directory inside the Dockerfile
-      context: ./
-      # Use the Dockerfile in the orchestrator directory
-      dockerfile: service-orchestrator/Dockerfile
+      context: ./service-orchestrator/
+      dockerfile: Dockerfile
     ports:
-      # Expose port 8081 on the host, and map port 5000 of the container to port 8081 on the host
-      - "8081:5000"
-    volumes:
-      # Mount the utils directory in the current directory to the /app/utils directory in the container
-      - ./utils:/app/utils
-      # Mount the orchestrator/src directory in the current directory to the /app/orchestrator/src directory in the container
-      - ./orchestrator/src:/app/orchestrator/src
+      - "8081:8081"
+    networks:
+      - book_system_network
   fraud_detection:
     build:
-      # Use the current directory as the build context
-      # This allows us to access the files in the current directory inside the Dockerfile
-      context: ./
-      # Use the Dockerfile in the fraud_detection directorys
-      dockerfile: service-fraud-detection/Dockerfile
+      context: ./service-fraud-detection/
+      dockerfile: Dockerfile
     ports:
-      # Expose port 50051 on the host, and map port 50051 of the container to port 50051 on the host
       - "50051:50051"
-    volumes:
-      # Mount the utils directory in the current directory to the /app/utils directory in the container
-      - ./utils:/app/utils
-      # Mount the fraud_detection/src directory in the current directory to the /app/fraud_detection/src directory in the container
-      - ./service-fraud-detection/src:/app/fraud_detection/src
-  suggestion_service:
-    build:
-      context: ./
-      dockerfile: service-suggestion-service/Dockerfile
-    ports:
-      - "50053:50053"
-    volumes:
-      # Mount the utils directory in the current directory to the /app/utils directory in the container
-      - ./utils:/app/utils
-      # Mount the fraud_detection/src directory in the current directory to the /app/fraud_detection/src directory in the container
-      - ./service-suggestion-service/src:/app/suggestion_service/src
+    networks:
+      - book_system_network
   transaction_verification:
     build:
-      context: ./
-      dockerfile: service-transaction-verification/Dockerfile
+      context: ./service-transaction-verification/
+      dockerfile: Dockerfile
     ports:
       - "50052:50052"
-    volumes:
-      # Mount the utils directory in the current directory to the /app/utils directory in the container
-      - ./utils:/app/utils
-      # Mount the fraud_detection/src directory in the current directory to the /app/fraud_detection/src directory in the container
-      - ./service-transaction-verification/src:/app/transaction_verification/src
-  order_queue:
+    networks:
+      - book_system_network
+  suggestion_service:
     build:
-      context: ./
-      dockerfile: service-order-queue/Dockerfile
+      context: ./service-suggestion-service/
+      dockerfile: Dockerfile
+    ports:
+      - "50053:50053"
+    networks:
+      - book_system_network
+  order_queue_service:
+    build:
+      context: ./service-order-queue/
+      dockerfile: Dockerfile
     ports:
       - "50054:50054"
-    volumes:
-      # Mount the utils directory in the current directory to the /app/utils directory in the container
-      - ./utils:/app/utils
-      # Mount the fraud_detection/src directory in the current directory to the /app/fraud_detection/src directory in the container
-      - ./service-order-queue/src:/app/order_queue/src
+    networks:
+      - book_system_network
+  coordinator_service:
+    build:
+      context: ./service-coordinator/
+      dockerfile: Dockerfile
+    ports:
+      - "50055:50055"
+    networks:
+      - book_system_network
+  executor_service:
+    build:
+      context: ./service-executor/
+      dockerfile: Dockerfile
+    ports:
+      - "50060:50060"
+    networks:
+      - book_system_network
+  database_service:
+    build:
+      context: ./service-database/
+      dockerfile: Dockerfile
+    ports:
+      - "50090:50090"
+    networks:
+      - book_system_network
+  payment_service:
+    build:
+      context: ./service-payment/
+      dockerfile: Dockerfile
+    ports:
+      - "50100:50100"
+    networks:
+      - book_system_network
+
+networks:
+  book_system_network:
+    driver: bridge

@@ -1,11 +1,14 @@
-FROM openjdk:17-jdk-alpine
+# Use an official OpenJDK 17 runtime as a parent image
+FROM amazoncorretto:17.0.11-alpine3.19
 
-VOLUME /tmp
+# Set the working directory in the container
+WORKDIR /app
 
+# Copy the application's JAR file to the container
+COPY ./build/libs/service-database-1.0.jar service-database-1.0.jar
+
+# Expose the port the application runs on
 EXPOSE 50090
 
-ARG JAR_FILE
-
-COPY $JAR_FILE database-service.jar
-
-ENTRYPOINT ["java", "-jar", "/database-service.jar"]
+# Define the command to run the application
+ENTRYPOINT ["java", "-jar", "service-database-1.0.jar"]

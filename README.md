@@ -33,6 +33,19 @@ frontend service:
 
 And then run each service individually.
 
+###E2E testing using Cypress
+
+Navigate to `cypress-tests` folder
+
+Run:
+```bash
+npm install
+```
+
+```bash
+npx cypress open
+```
+
 ### Diagrams
 
 ![alt text](sequence-diagram.jpeg "Sequence diagram")

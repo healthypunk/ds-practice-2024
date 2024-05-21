@@ -5,10 +5,10 @@ FROM amazoncorretto:17.0.11-alpine3.19
 WORKDIR /app
 
 # Copy the application's JAR file to the container
-COPY ./build/libs/service-transaction-verification-1.0.jar service-transaction-verification-1.0.jar
+COPY ./build/libs/service-suggestion-service-1.0.jar service-suggestion-service-1.0.jar
 
 # Expose the port the application runs on
 EXPOSE 50053
 
 # Define the command to run the application
-ENTRYPOINT ["java", "-jar", "service-transaction-verification-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "service-suggestion-service-1.0.jar"]

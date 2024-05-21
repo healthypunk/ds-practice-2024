@@ -26,7 +26,7 @@ services:
       - "8081:8081"
     networks:
       - book_system_network
-  fraud_detection:
+  fraud-detection:
     build:
       context: ./service-fraud-detection/
       dockerfile: Dockerfile
@@ -34,7 +34,7 @@ services:
       - "50051:50051"
     networks:
       - book_system_network
-  transaction_verification:
+  transaction-verification:
     build:
       context: ./service-transaction-verification/
       dockerfile: Dockerfile
@@ -42,7 +42,7 @@ services:
       - "50052:50052"
     networks:
       - book_system_network
-  suggestion_service:
+  suggestion-service:
     build:
       context: ./service-suggestion-service/
       dockerfile: Dockerfile
@@ -50,7 +50,7 @@ services:
       - "50053:50053"
     networks:
       - book_system_network
-  order_queue_service:
+  order-queue-service:
     build:
       context: ./service-order-queue/
       dockerfile: Dockerfile
@@ -58,7 +58,7 @@ services:
       - "50054:50054"
     networks:
       - book_system_network
-  coordinator_service:
+  coordinator-service:
     build:
       context: ./service-coordinator/
       dockerfile: Dockerfile
@@ -66,7 +66,7 @@ services:
       - "50055:50055"
     networks:
       - book_system_network
-  executor_service:
+  executor-service:
     build:
       context: ./service-executor/
       dockerfile: Dockerfile
@@ -74,7 +74,7 @@ services:
       - "50060:50060"
     networks:
       - book_system_network
-  database_service:
+  database-service:
     build:
       context: ./service-database/
       dockerfile: Dockerfile
@@ -82,7 +82,7 @@ services:
       - "50090:50090"
     networks:
       - book_system_network
-  payment_service:
+  payment-service:
     build:
       context: ./service-payment/
       dockerfile: Dockerfile

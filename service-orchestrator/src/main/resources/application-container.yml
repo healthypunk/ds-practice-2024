@@ -11,22 +11,22 @@ spring:
 grpc:
   client:
     grpc-fraud-detection:
-      address: 'fraud-detection:50051'
+      address: 'static://fraud_detection:50051'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
     grpc-transaction-verification:
-      address: 'transaction-verification:50052'
+      address: 'static://transaction_verification:50052'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
     grpc-suggestion-service:
-      address: 'suggestion-service:50053'
+      address: 'static://suggestion_service:50053'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
     grpc-order-queue:
-      address: 'order-queue-service:50054'
+      address: 'static://order_queue_service:50054'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext

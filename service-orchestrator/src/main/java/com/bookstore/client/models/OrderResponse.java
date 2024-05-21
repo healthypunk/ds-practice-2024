@@ -13,7 +13,7 @@ import java.util.List;
 @Accessors(chain = true)
 public class OrderResponse {
     public String orderId;
-    public String orderStatus;
+    public String status;
     private List<SuggestedBook> suggestedBooks;
 
 

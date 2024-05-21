@@ -1,12 +1,12 @@
 grpc:
   client:
     grpc-order-queue:
-      address: 'order-queue-service:50054'
+      address: 'static://127.0.0.1:50054'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
     grpc-executor:
-      address: 'executor-service:50060'
+      address: 'static://127.0.0.1:50060'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext

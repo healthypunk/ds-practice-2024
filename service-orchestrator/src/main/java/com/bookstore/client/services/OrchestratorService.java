@@ -29,10 +29,10 @@ public class OrchestratorService {
             fraudDetectionService.detectCreditCardFraud(orderRequest);
             OrderResponse.SuggestedBook suggestedBook = suggestionService.suggestBook(orderRequest);
             String status = orderQueueService.enqueueOrder(orderRequest);
-            return new OrderResponse().setOrderId(orderRequest.getId()).setOrderStatus(status).setSuggestedBooks(List.of(suggestedBook));
+            return new OrderResponse().setOrderId(orderRequest.getId()).setStatus(status).setSuggestedBooks(List.of(suggestedBook));
         } catch (Exception e) {
             log.error(String.valueOf(e));
-            return new OrderResponse().setOrderId(orderRequest.getId()).setOrderStatus("FAILURE");
+            return new OrderResponse().setOrderId(orderRequest.getId()).setStatus("FAILURE");
         }
     }
 }

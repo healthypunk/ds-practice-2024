@@ -8,13 +8,13 @@ vectorclock:
   grpc:
     client:
       grpc-payment-service:
-        address: 'payment-service:50100'
+        address: 'static://127.0.0.1:50100'
         enableKeepAlive: true
         keepAliveWithoutCalls: true
         negotiationType: plaintext
 
       grpc-database-service:
-        address: 'database-service:50090'
+        address: 'static://127.0.0.1:50090'
         enableKeepAlive: true
         keepAliveWithoutCalls: true
         negotiationType: plaintext

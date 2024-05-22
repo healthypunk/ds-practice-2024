@@ -1,20 +1,19 @@
 grpc:
   server:
     port: 50060
+  client:
+    grpc-payment-service:
+      address: 'payment-service:50100'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
 
+    grpc-database-service:
+      address: 'database-service:50090'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
 vectorclock:
   nodeId: executor
 
-  grpc:
-    client:
-      grpc-payment-service:
-        address: 'payment-service:50100'
-        enableKeepAlive: true
-        keepAliveWithoutCalls: true
-        negotiationType: plaintext
 
-      grpc-database-service:
-        address: 'database-service:50090'
-        enableKeepAlive: true
-        keepAliveWithoutCalls: true
-        negotiationType: plaintext

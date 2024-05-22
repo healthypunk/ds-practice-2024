@@ -8,6 +8,13 @@ spring:
       pool:
         core-size: 2
         max-size: 3
+  sleuth:
+    otel:
+      exporter:
+        otlp:
+          endpoint: 'http://observability:4317'
+      config:
+        trace-id-ratio-based: 1.0
 grpc:
   client:
     grpc-fraud-detection:

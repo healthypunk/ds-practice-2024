@@ -29,4 +29,8 @@ public class PriorityQueueService {
         queue.offer(request);
     }
 
+    public Long getQueueSize() {
+        return (long) queue.size();
+    }
+
 }

@@ -1,0 +1,69 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Order Queue Service Dashboard",
+    "tags": [],
+    "style": "dark",
+    "timezone": "browser",
+    "editable": true,
+    "hideControls": false,
+    "graphTooltip": 0,
+    "panels": [
+      {
+        "title": "Total Orders Enqueued",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "sum(enqueue_counter)",
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "id": 1
+      },
+      {
+        "title": "Orders In Progress",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "sum(in_progress_counter)",
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "id": 2
+      },
+      {
+        "title": "95th Percentile Enqueue Latency",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, sum(rate(enqueue_latency_histogram_bucket[5m])) by (le))",
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "id": 3
+      },
+      {
+        "title": "Current Queue Size",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "avg(current_queue_size_gauge)",
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "id": 4
+      }
+    ],
+    "schemaVersion": 27,
+    "version": 1,
+    "links": []
+  }
+}

@@ -54,3 +54,4 @@ npx cypress open
 ![alt text](leader-election-diagram-1.png "Leader election diagram 1")
 ![alt text](leader-election-diagram-2.png "Leader election diagram 2")
 ![alt text](leader-election-diagram-3.png "Leader election diagram 3")
+![alt text](arc_overview.png "System diagram")

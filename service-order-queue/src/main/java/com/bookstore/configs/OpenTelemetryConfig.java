@@ -1,4 +1,4 @@
-package com.bookstore.client.configs;
+package com.bookstore.configs;
 
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.metrics.Meter;
@@ -11,22 +11,16 @@ import io.opentelemetry.sdk.metrics.export.PeriodicMetricReader;
 import io.opentelemetry.sdk.resources.Resource;
 import io.opentelemetry.sdk.trace.SdkTracerProvider;
 import io.opentelemetry.sdk.trace.export.BatchSpanProcessor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenTelemetryConfig {
 
-    @Value("${spring.sleuth.otel.exporter.otlp.endpoint}")
-    private String otlpEndpoint;
-
     @Bean
     public OpenTelemetry openTelemetry() {
         // Configure the Span Exporter
-        OtlpGrpcSpanExporter spanExporter = OtlpGrpcSpanExporter.builder()
-                .setEndpoint(otlpEndpoint)
-                .build();
+        OtlpGrpcSpanExporter spanExporter = OtlpGrpcSpanExporter.builder().build();
         BatchSpanProcessor spanProcessor = BatchSpanProcessor.builder(spanExporter).build();
         SdkTracerProvider tracerProvider = SdkTracerProvider.builder()
                 .addSpanProcessor(spanProcessor)
@@ -34,9 +28,7 @@ public class OpenTelemetryConfig {
                 .build();
 
         // Configure the Metric Exporter
-        OtlpGrpcMetricExporter metricExporter = OtlpGrpcMetricExporter.builder()
-                .setEndpoint(otlpEndpoint)
-                .build();
+        OtlpGrpcMetricExporter metricExporter = OtlpGrpcMetricExporter.builder().build();
         PeriodicMetricReader metricReader = PeriodicMetricReader.builder(metricExporter).build();
         SdkMeterProvider meterProvider = SdkMeterProvider.builder()
                 .setResource(Resource.getDefault())

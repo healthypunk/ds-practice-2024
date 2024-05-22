@@ -22,6 +22,8 @@ services:
     build:
       context: ./service-orchestrator/
       dockerfile: Dockerfile
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://observability:4317
     ports:
       - "8081:8081"
     networks:

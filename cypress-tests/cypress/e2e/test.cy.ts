@@ -1,0 +1,23 @@
+describe('template spec', () => {
+  it('passes', () => {
+    cy.visit('localhost:8080')
+    cy.get(".btn").contains("Explore books").click()
+    cy.get(".btn").eq(1).click()
+    cy.get(".btn").contains("Checkout").click()
+    cy.get("input[id='name']").type("John Doe")
+    cy.get("input[id='contact']").type("john.doe@ut.ee")
+    cy.get("input[id='street']").type("Test street 42")
+    cy.get("input[id='city']").type("Tartu")
+    cy.get("input[id='state']").type("Tartumaa")
+    cy.get("input[id='zip']").type("20202")
+    cy.get("select").select("Estonia")
+    cy.get("input[id^='creditCardN']").type("1749778693249711")
+    cy.get("input[id^='creditCardE']").type("12/24")
+    cy.get("input[id^='creditCardC']").type("222")
+    cy.get("input[id^='discount']").type("WELCOME10")
+    cy.get("input[id^='shipping']").type("Standard")
+    cy.get("input[id^='terms']").click()
+    cy.get(".btn").contains("Submit").click()
+
+  })
+})
